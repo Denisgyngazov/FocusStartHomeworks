@@ -9,27 +9,31 @@ import Foundation
 
 var cars = Array<Car>()
 func newCar(){
-
+	print("----------------------")
 	print("Введите марку:")
 	var manufacturer = readLine()!
 	while(manufacturer == ""){
 		print("Поле пустое, введите производителя")
 		manufacturer = readLine()!
 	}
+	print("----------------------")
 	print("Введите модель:")
 	var model = readLine()!
 	while(model == ""){
 		print("Поле пустое, введите модель")
 		model = readLine()!
 	}
+	print("----------------------")
 	print("Введите тип кузова:")
 	var body = readLine()!
 	while(body == ""){
 		print("Поле пустое, введите тип кузова")
 		body = readLine()!
 	}
+	print("----------------------")
 	print("Введите год автомобиля:")
 	let yearsOfIssue = readLine()!
+	print("----------------------")
 	print("Введите государественный знак автомобиля:")
 	let carNumber = readLine()!
 	let addCar = Car(manufacturer: manufacturer, model: model, body: body,yearsOfIssue: Int(yearsOfIssue), carNumber: carNumber)
@@ -47,19 +51,25 @@ func printCar(car:Car){
 }
 
 func printMenu(){
-	print("Доброго времени суток, чтобы вы хотели выполнить?",
+	print("-------------------------------------------------",
+		  "\nДоброго времени суток, чтобы вы хотели выполнить?",
 		  "\n1 - Добавить новый автомобиль",
 		  "\n2 - Вывести все автомобили",
 		  "\n3 - Вывести по фильтру: тип кузова автомобиля",
-		  "\n0 - Выход")
+		  "\n0 - Выход",
+		  "\n-------------------------------------------------")
 	print("\nВведите пункт меню:")
+	print("\n----------------------")
 }
 func printMenuBodyType(){
-	print("\nВыберите тип кузова",
+	print("----------------------",
+		  "\nВыберите тип кузова",
 		  "\n1 - Седан",
 		  "\n2 - Универсал",
-		  "\n3 - Купе")
+		  "\n3 - Купе",
+		  "\n----------------------")
 	print("\nВыберите тип кузова:")
+	print("----------------------")
 }
 
 func filterCar(car: Car,filterId: String) -> Bool{
