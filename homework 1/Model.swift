@@ -7,11 +7,18 @@
 
 import Foundation
 
-enum Body: String {
-	case Седан = "1"
-	case Универсал = "2"
-	case Купе = "3"
-	
+enum Body: Int, CaseIterable {
+	case sedan = 1
+	case statoonWagon = 2
+	case coupe = 3
+
+	var name: String {
+		switch self {
+			case .sedan: return "Седан"
+			case .statoonWagon: return "Универсал"
+			case .coupe: return "Купе"
+		}
+	}
 }
 
 struct Car {
