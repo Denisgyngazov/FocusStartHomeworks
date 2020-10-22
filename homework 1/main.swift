@@ -19,6 +19,8 @@ func newCar() {
 	print("----------------------")
 	printMenuBodyType()
 	let body = readString()
+	guard let selectedBodyNumber = Int(body),
+	let selectedBodyNumberInt = Body(rawValue: selectedBodyNumber) else { return }
 	print("----------------------")
 	print("Введите год автомобиля:")
 	guard let yearsOfIssue = readLine() else { return }
@@ -27,19 +29,24 @@ func newCar() {
 	guard let carNumber = readLine() else { return }
 	let addCar = Car(manufacturer: manufacturer,
 					 model: model,
-					 body: Body(rawValue: Int(body)!)!,
-					 yearsOfIssue: Int(yearsOfIssue),
+					 body: selectedBodyNumberInt,
+					 yearsOfIssue: Int((yearsOfIssue)),
 					 carNumber: carNumber)
 	cars.append(addCar)
 }
 
-func printCar(car:Car) {
+func printCar(_ car: Car) {
+	let manufacturer = car.manufacturer
+	let model = car.model
+	let body = car.body.name
+	guard let yearsOfIssue = car.yearsOfIssue?.description == nil ? "-" : car.yearsOfIssue?.description else { return }
+	guard let carNumber = car.carNumber?.description == nil ? "" : car.carNumber?.description else { return }
 	print("--------------------------------",
-		  "\nПроизводитель: ", car.manufacturer,
-		  "\nМодель: ", car.model,
-		  "\nТип кузова: ", car.body.name,
-		  "\nГод выпуска: ", car.yearsOfIssue == nil ? "-": car.yearsOfIssue! as Any,
-		  "\nГос номер: ", car.carNumber == nil ? "": car.carNumber! as Any,
+		  "\nПроизводитель: ", manufacturer,
+		  "\nМодель: ", model,
+		  "\nТип кузова: ", body,
+		  "\nГод выпуска: ", yearsOfIssue,
+		  "\nГос номер: ", carNumber,
 		  "\n--------------------------------")
 }
 
@@ -65,7 +72,7 @@ func printMenuBodyType() {
 
 func readString(errorMesage: String = "Введено неверное значение, повторите попытку") -> String {
 	guard var value = readLine() else { return errorMesage }
-	while (value.isEmpty){
+	while value.isEmpty {
 		print(errorMesage)
 		value = readLine() ?? ""
 	}
@@ -73,40 +80,38 @@ func readString(errorMesage: String = "Введено неверное знач�
 }
 
 func filterCarBodyType() {
-	guard let menu = readLine() else { return }
-	let selectedBody: Body = Body(rawValue: Int(menu)!)!
+	guard let selectedBodyNumberString = readLine(),
+	let selectedBodyNumber = Int(selectedBodyNumberString),
+	let selectedBody = Body(rawValue: selectedBodyNumber) else { return }
 	let filteredCars = cars.filter { $0.body == selectedBody }
-	for i in filteredCars {
-		printCar(car: i)
+	for car in filteredCars {
+		printCar(car)
 	}
 }
 
 while true {
 	printMenu()
-	let swithcMenu = readLine()
-	switch swithcMenu {
+	let switchMenu = readLine()
+	switch switchMenu {
 	case "1":
 		newCar()
 	case "2":
-		if (cars.isEmpty == false){
-			for i in cars {
-				printCar(car: i)
+		if cars.isEmpty == false {
+			for car in cars {
+				printCar(car)
 			}
 		} else {
 			print("\nСписок автомобилей пуст, добавьте сначала автомобиль")
 		}
 	case "3":
 		printMenuBodyType()
-		if (cars.isEmpty == false) {
+		if cars.isEmpty == false {
 			filterCarBodyType()
 		} else {
 			print("\nCписок автомобилей пуст, добавьте сначала автомобиль\n")
 		}
 	default:
-		break
-	}
-	if (swithcMenu == "0"){
-		break
+		exit(0)
 	}
 }
 
