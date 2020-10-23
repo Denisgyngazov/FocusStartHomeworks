@@ -23,10 +23,10 @@ func newCar() {
 		  let selectedBodyNumberInt = Body(rawValue: selectedBodyNumber) else { return }
 	print("----------------------")
 	print("Введите год автомобиля:")
-	let yearsOfIssue = Int(readString())
+	let yearsOfIssue = Int(readLine() ?? "")
 	print("----------------------")
 	print("Введите государественный знак автомобиля:")
-	guard let carNumber = readLine() else { return  }
+	let carNumber = readLine()
 	let addCar = Car(manufacturer: manufacturer,
 					 model: model,
 					 body: selectedBodyNumberInt,
