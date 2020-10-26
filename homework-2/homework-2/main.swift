@@ -7,5 +7,23 @@
 
 import Foundation
 
-print("Hello, World!")
-print("Hello, World!")
+var safeArray = ThreadSafeArray<Any>()
+
+let group = DispatchGroup()
+group.enter()
+DispatchQueue.global(qos: .default).async {
+	for number in 0...1000 {
+		safeArray.append(number)
+	}
+	group.leave()
+}
+
+group.enter()
+DispatchQueue.global(qos: .default).async {
+	for number in 0...1000 {
+		safeArray.append(number)
+	}
+	group.leave()
+}
+group.wait()
+print(safeArray.count)
