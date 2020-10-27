@@ -27,3 +27,8 @@ DispatchQueue.global(qos: .default).async {
 }
 group.wait()
 print(safeArray.count)
+
+
+
+
+

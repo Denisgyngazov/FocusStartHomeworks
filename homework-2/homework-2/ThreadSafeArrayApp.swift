@@ -22,27 +22,34 @@ final class ThreadSafeArray<Element> {
 		}
 	}
 
-	subscript(index: Int) -> Element {
-		return threadSafeArray[index]
-	}
-
-	func contains(_ element: Element) -> Bool {
-		if self.threadSafeArray.isEmpty {
-			return false
-		}
-		else {
-			return true
+	subscript(index: Int) -> Element? {
+		isolationQueue.sync {
+			return self.threadSafeArray[index]
 		}
 	}
 
 	var count: Int {
-		return self.threadSafeArray.count
+		isolationQueue.sync {
+			return self.threadSafeArray.count
+		}
 	}
 
 	var isEmpty: Bool {
-		if self.threadSafeArray.isEmpty {
-			return true
+		isolationQueue.sync {
+			return self.threadSafeArray.isEmpty
 		}
-		return self.threadSafeArray.isEmpty
 	}
 }
+
+extension ThreadSafeArray where Element: Equatable {
+	func contains (_ element: Element) -> Bool {
+		var value = isEmpty
+		isolationQueue.sync {
+			value = threadSafeArray.contains(element)
+		}
+		return value
+	}
+}
+
+
+
