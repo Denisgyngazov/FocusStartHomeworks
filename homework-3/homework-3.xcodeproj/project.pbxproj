@@ -69,9 +69,9 @@
 		C4CD450A254BDF45006F5DBD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4DC0B41254BE3740045643F /* ViewController.swift */,
 				C4DC0B3F254BE3740045643F /* SecondViewController.swift */,
 				C4DC0B40254BE3740045643F /* ThirdViewController.swift */,
-				C4DC0B41254BE3740045643F /* ViewController.swift */,
 			);
 			name = View;
 			path = ../../View;
@@ -80,8 +80,8 @@
 		C4CD4511254BDFC3006F5DBD /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				C4CD44F2254BDDE9006F5DBD /* AppDelegate.swift */,
 				C4CD44F4254BDDE9006F5DBD /* SceneDelegate.swift */,
+				C4CD44F2254BDDE9006F5DBD /* AppDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
