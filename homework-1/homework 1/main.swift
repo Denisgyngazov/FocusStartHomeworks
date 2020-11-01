@@ -20,7 +20,7 @@ func newCar() {
 	printMenuBodyType()
 	let body = readString()
 	guard let selectedBodyNumber = Int(body),
-		  let selectedBodyNumberInt = Body(rawValue: selectedBodyNumber) else { return }
+	let selectedBodyNumberInt = Body(rawValue: selectedBodyNumber) else { return }
 	print("----------------------")
 	print("Введите год автомобиля:")
 	let yearsOfIssue = Int(readLine() ?? "")
