@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-// MARK: - Property
+	// MARK: - View
 	
 	private let firstLabel = UILabel()
 	private let secondLabel = UILabel()
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 	private let imageView = UIImageView()
 	private let activityIndicator = UIActivityIndicatorView()
 	
-// MARK: - Life Сycle
+	// MARK: - Life Сycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -47,60 +47,57 @@ private extension ViewController {
 	func setupTabBarItemApperance() {
 		var tabBarItem = UITabBarItem()
 		view.backgroundColor = .systemBlue
-		self.navigationItem.title = "Первый экран"
-		tabBarItem = UITabBarItem(title: "Первый экран", image: .checkmark, tag: 0)
+		self.navigationItem.title = NavigationItems.firstScreen.rawValue
+		tabBarItem = UITabBarItem(title: TabBarItems.firstScreen.rawValue, image: .checkmark, tag: 0)
 		self.tabBarItem = tabBarItem
 	}
 
 	func setupFirstLabelApperance() {
-		firstLabel.text = "FirstLabel"
+		firstLabel.text = Labels.firstLabel.rawValue
 		firstLabel.textColor = .white
 		view.addSubview(firstLabel)
 	}
 
 	func setupSecondLabelApperance() {
-		secondLabel.text = "SecondLabel"
+		secondLabel.text = Labels.secondLabel.rawValue
 		secondLabel.font = UIFont.boldSystemFont(ofSize: 20)
+		secondLabel.sizeToFit()
 		secondLabel.textColor = .white
-		view.addSubview(secondLabel)
 	}
 
 	func setupThirdLabelApperance() {
-		thirdLabel.text = "ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel,ThirdLabel"
+		thirdLabel.text = Labels.thirdLabel.rawValue
 		thirdLabel.font = UIFont.italicSystemFont(ofSize: 23)
 		thirdLabel.numberOfLines = 2
 		thirdLabel.textColor = .white
-		view.addSubview(thirdLabel)
 	}
 
 	func setupFirstButtonApperance() {
 		firstButton = UIButton(type: .roundedRect)
-		firstButton.setTitle("Press", for: .normal)
+		firstButton.setTitle(Buttons.press.rawValue, for: .normal)
 		firstButton.layer.cornerRadius = 25
 		firstButton.clipsToBounds = true
 		firstButton.backgroundColor = .darkGray
-		view.addSubview(firstButton)
 	}
 
 	func setupSecondButtonApperance() {
 		secondButton = UIButton(type: .roundedRect)
-		secondButton.setTitle("Press", for: .normal)
+		secondButton.setTitle(Buttons.press.rawValue, for: .normal)
 		secondButton.layer.cornerRadius = 8
 		secondButton.clipsToBounds = true
 		secondButton.backgroundColor = .darkGray
-		view.addSubview(secondButton)
 	}
 
 	func setupImmageViewApperance() {
-		imageView.image = UIImage(named: "Безмятежность")
-		view.addSubview(imageView)
+		imageView.image = UIImage(named: Images.serenity.rawValue)
+		imageView.contentMode = .scaleAspectFill
+
 	}
 
 	func setupActivityIndicatorApperance() {
 		activityIndicator.startAnimating()
 		activityIndicator.color = .black
 		activityIndicator.style = .large
-		view.addSubview(activityIndicator)
 	}
 }
 
@@ -115,10 +112,11 @@ private extension ViewController {
 		setupFirstButtonLayout()
 		setupSecondButtonLayout()
 		setupFirstImageLayout()
-		setupConstr()
+		setupActivityIndicatorLayout()
 	}
 
 	func setupFirstLabelLayout() {
+		view.addSubview(firstLabel)
 		firstLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -128,6 +126,7 @@ private extension ViewController {
 	}
 
 	func setupSecondLabelLayout() {
+		view.addSubview(secondLabel)
 		secondLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -137,6 +136,7 @@ private extension ViewController {
 	}
 
 	func setupThirdLabelLayout() {
+		view.addSubview(thirdLabel)
 		thirdLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -147,6 +147,7 @@ private extension ViewController {
 	}
 
 	func setupFirstButtonLayout() {
+		view.addSubview(firstButton)
 		firstButton.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -158,6 +159,7 @@ private extension ViewController {
 	}
 
 	func setupSecondButtonLayout() {
+		view.addSubview(secondButton)
 		secondButton.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -169,6 +171,7 @@ private extension ViewController {
 	}
 
 	func setupFirstImageLayout() {
+		view.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -179,7 +182,8 @@ private extension ViewController {
 		])
 	}
 
-	func setupConstr() {
+	func setupActivityIndicatorLayout() {
+		view.addSubview(activityIndicator)
 		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([

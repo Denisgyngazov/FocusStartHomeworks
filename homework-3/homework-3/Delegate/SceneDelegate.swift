@@ -17,13 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let secondVC = SecondViewController()
 		let thirdVC = ThirdViewController()
 		let tabBarVC = UITabBarController()
-		let firstNavController = UINavigationController(rootViewController: firstVC)
-		let secondNavController = UINavigationController(rootViewController: secondVC)
-		let thirdNavController = UINavigationController(rootViewController: thirdVC)
+		let firstNavigationController = UINavigationController(rootViewController: firstVC)
+		let secondNavigationController = UINavigationController(rootViewController: secondVC)
+		let thirdNavigationController = UINavigationController(rootViewController: thirdVC)
 		
-		tabBarVC.setViewControllers([firstNavController,
-									 secondNavController,
-									 thirdNavController],
+		tabBarVC.setViewControllers([firstNavigationController,
+									 secondNavigationController,
+									 thirdNavigationController],
 									animated: true)
 		
 		window = UIWindow(windowScene: winScene)
