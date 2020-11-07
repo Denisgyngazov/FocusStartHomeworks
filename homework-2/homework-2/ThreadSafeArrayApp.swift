@@ -8,34 +8,35 @@ import Foundation
 
 final class ThreadSafeArray<Element> {
 	private var threadSafeArray = Array<Element>()
-	let isolationQueue = DispatchQueue(label: "com.homework-2.isolation", attributes: .concurrent)
+	private let isolationQueue = DispatchQueue(label: "com.homework-2.isolation", attributes: .concurrent)
 
 	func append(_ item: Element) {
-		isolationQueue.async(flags: .barrier) {
+		self.isolationQueue.async(flags: .barrier) {
 			self.threadSafeArray.append(item)
+
 		}
 	}
 
 	func remove(at index: Int) {
-		isolationQueue.async(flags: .barrier) {
+		self.isolationQueue.async(flags: .barrier) {
 			self.threadSafeArray.remove(at: index)
 		}
 	}
 
 	subscript(index: Int) -> Element? {
-		isolationQueue.sync {
+		self.isolationQueue.sync {
 			return self.threadSafeArray[index]
 		}
 	}
 
-	var count: Int {
-		isolationQueue.sync {
+	 var count: Int {
+		self.isolationQueue.sync {
 			return self.threadSafeArray.count
 		}
 	}
 
-	var isEmpty: Bool {
-		isolationQueue.sync {
+	 var isEmpty: Bool {
+		self.isolationQueue.sync {
 			return self.threadSafeArray.isEmpty
 		}
 	}
@@ -44,7 +45,7 @@ final class ThreadSafeArray<Element> {
 extension ThreadSafeArray where Element: Equatable {
 	func contains (_ element: Element) -> Bool {
 		var value = isEmpty
-		isolationQueue.sync {
+		self.isolationQueue.sync {
 			value = threadSafeArray.contains(element)
 		}
 		return value
