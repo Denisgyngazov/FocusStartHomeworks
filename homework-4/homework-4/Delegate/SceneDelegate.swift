@@ -17,13 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 		self.window = UIWindow(windowScene: winScene)
 
 		let masterController = MasterViewController()
-		let navigationDetailController = UINavigationController(rootViewController: masterController)
+		let navigationMasterController = UINavigationController(rootViewController: masterController)
 
 		let detailController = DetailViewController()
-		let navigationMasterController = UINavigationController(rootViewController: detailController)
+		let navigationDetailController = UINavigationController(rootViewController: detailController)
 
 		let splitViewController = UISplitViewController()
-		splitViewController.viewControllers = [navigationDetailController, navigationMasterController]
+		splitViewController.viewControllers = [navigationMasterController, navigationDetailController]
 		splitViewController.preferredDisplayMode = .oneBesideSecondary
 		splitViewController.delegate = self
 
