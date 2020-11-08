@@ -8,16 +8,20 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
+
+// MARK: - Property
+
 	let mockData: [Mock] = Mock.mockData()
-    override func viewDidLoad() {
 
-        super.viewDidLoad()
+// MARK: - Life Cycle
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		setupMasterController()
-    }
-
+	}
 }
 
- // MARK: - Data Source
+// MARK: - Data Source
 
 extension MasterViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,12 +43,10 @@ extension MasterViewController {
 extension MasterViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		let detailViewController = DetailViewController()
+		let detailViewController = DetailViewController(descriptionText: mockData[indexPath.row].description)
 		detailViewController.title = mockData[indexPath.row].title
-		detailViewController.configure(text: mockData[indexPath.row].description)
 		let navigationController = UINavigationController(rootViewController: detailViewController)
 		self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-
 	}
 }
 
@@ -57,4 +59,7 @@ private extension MasterViewController {
 		self.navigationController?.navigationBar.prefersLargeTitles = true
 	}
 }
+
+
+
 

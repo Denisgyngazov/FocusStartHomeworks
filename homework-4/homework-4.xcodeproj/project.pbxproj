@@ -14,6 +14,8 @@
 		C47B73612554DA650021C62C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B73602554DA650021C62C /* DetailViewController.swift */; };
 		C47B73662554DA670021C62C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C47B73652554DA670021C62C /* Assets.xcassets */; };
 		C47B73692554DA670021C62C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47B73672554DA670021C62C /* LaunchScreen.storyboard */; };
+		C496119B2557BA8400835B33 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C496119A2557BA8400835B33 /* Images.swift */; };
+		C49611A02557BCD800835B33 /* RoundedShadowOffSetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C496119F2557BCD800835B33 /* RoundedShadowOffSetImage.swift */; };
 		C4CC183C2554EE8E00967A33 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC183B2554EE8E00967A33 /* Mock.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		C47B73652554DA670021C62C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C47B73682554DA670021C62C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C47B736A2554DA670021C62C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C496119A2557BA8400835B33 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		C496119F2557BCD800835B33 /* RoundedShadowOffSetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowOffSetImage.swift; sourceTree = "<group>"; };
 		C4CC183B2554EE8E00967A33 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +64,7 @@
 		C47B735B2554DA650021C62C /* homework-4 */ = {
 			isa = PBXGroup;
 			children = (
+				C496119E2557BC8900835B33 /* View */,
 				C4A45F8E255547970055D542 /* Components */,
 				C4CC183A2554EE6F00967A33 /* Model */,
 				C47B73722554DA8F0021C62C /* Controller */,
@@ -106,9 +111,18 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		C496119E2557BC8900835B33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C496119F2557BCD800835B33 /* RoundedShadowOffSetImage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C4A45F8E255547970055D542 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C496119A2557BA8400835B33 /* Images.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,11 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C42316D52554EADB004BCE2D /* MasterViewController.swift in Sources */,
+				C496119B2557BA8400835B33 /* Images.swift in Sources */,
 				C42316D02554E492004BCE2D /* MasterTableViewCell.swift in Sources */,
 				C47B73612554DA650021C62C /* DetailViewController.swift in Sources */,
 				C47B735D2554DA650021C62C /* AppDelegate.swift in Sources */,
 				C47B735F2554DA650021C62C /* SceneDelegate.swift in Sources */,
 				C4CC183C2554EE8E00967A33 /* Mock.swift in Sources */,
+				C49611A02557BCD800835B33 /* RoundedShadowOffSetImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
