@@ -18,6 +18,7 @@ class MasterViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupMasterController()
+		openCell(indexPath: IndexPath(row: 0, section: 0))
 	}
 }
 
@@ -58,6 +59,15 @@ private extension MasterViewController {
 		self.navigationItem.title = "ДЗ №4"
 		self.navigationController?.navigationBar.prefersLargeTitles = true
 	}
+}
+
+private extension MasterViewController {
+	func openCell(indexPath: IndexPath) {
+		let detailViewController = DetailViewController(descriptionText: mockData[indexPath.row].description)
+			detailViewController.title = mockData[indexPath.row].title
+			let navigationController = UINavigationController(rootViewController: detailViewController)
+			self.splitViewController?.showDetailViewController(navigationController, sender: nil)
+		}
 }
 
 
