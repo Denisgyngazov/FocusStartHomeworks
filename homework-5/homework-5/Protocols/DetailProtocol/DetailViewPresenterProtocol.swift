@@ -1,0 +1,13 @@
+//
+//  DetailViewPresenterProtocol.swift
+//  homework-5
+//
+//  Created by Денис Гынгазов on 12.11.2020.
+//
+
+import Foundation
+
+protocol DetailViewPresenterProtocol: AnyObject {
+	init(view: DetailViewProtocol, networks: Networks, comment: Comments?)
+	func setComment()
+}
