@@ -9,18 +9,18 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
-	// MARK: - Property
+// MARK: - Property
 
 	private var enterButtonLayoutConstraint: NSLayoutConstraint?
 
-	// MARK: - View
+// MARK: - View
 
 	private let loginTexField = UITextField()
 	private let passwordTextField = UITextField()
 	private let enterButton = UIButton()
 	private let scrollView = UIScrollView()
 
-	// MARK: - Life Cycle
+// MARK: - Life Cycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -132,8 +132,6 @@ private extension ThirdViewController {
 		}
 	}
 }
-
-
 
 // MARK: - Layout
 

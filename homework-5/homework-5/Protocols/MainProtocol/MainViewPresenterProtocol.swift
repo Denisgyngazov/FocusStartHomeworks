@@ -8,7 +8,6 @@
 import Foundation
 
 protocol MainViewPresenterProtocol: AnyObject {
-	init(view: MainViewProtocol, networks: NetworksProtocol)
 	func getComments()
 	var comments: [Comments]? { get set }
 }

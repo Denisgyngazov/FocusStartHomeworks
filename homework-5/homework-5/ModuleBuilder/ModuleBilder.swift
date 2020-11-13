@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ModuleBuilder: Builder {
+ final class ModuleBuilder: Builder {
 	static func createMainModule() -> UIViewController {
 		let view = MainViewController()
 		let networks = Networks()
@@ -16,7 +16,7 @@ class ModuleBuilder: Builder {
 		return view
 	}
 
-	static func createDetailModule(comment: Comments?) -> UIViewController {
+	 static func createDetailModule(comment: Comments?) -> UIViewController {
 		let view = DetailViewController()
 		let networks = Networks()
 		let presenter = DetailPresenter(view: view, networks: networks, comment: comment)

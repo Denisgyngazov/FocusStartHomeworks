@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
 // MARK: - View
 
@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 	}
 }
+
 
 // MARK: - Data Source
 

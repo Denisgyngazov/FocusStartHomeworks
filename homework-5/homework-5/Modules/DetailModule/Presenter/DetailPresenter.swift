@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DetailPresenter: DetailViewPresenterProtocol {
+final class DetailPresenter: DetailViewPresenterProtocol {
 
 // MARK: - Property
 
@@ -17,7 +17,7 @@ class DetailPresenter: DetailViewPresenterProtocol {
 
 // MARK: - Init
 
-	required init(view: DetailViewProtocol, networks: Networks, comment: Comments?) {
+	init(view: DetailViewProtocol, networks: Networks, comment: Comments?) {
 		self.view = view
 		self.comment = comment
 		self.networks = networks

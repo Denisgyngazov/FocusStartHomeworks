@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MainPresenter: MainViewPresenterProtocol {
+final class MainPresenter: MainViewPresenterProtocol {
 
 // MARK: - Property
 
@@ -17,7 +17,7 @@ class MainPresenter: MainViewPresenterProtocol {
 
 // MARK: - Init
 
-	required init(view: MainViewProtocol, networks: NetworksProtocol) {
+	init(view: MainViewProtocol, networks: NetworksProtocol) {
 		self.view = view
 		self.networks = networks
 		getComments()

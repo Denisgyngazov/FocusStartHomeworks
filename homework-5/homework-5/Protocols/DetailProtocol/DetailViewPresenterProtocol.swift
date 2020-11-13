@@ -8,6 +8,5 @@
 import Foundation
 
 protocol DetailViewPresenterProtocol: AnyObject {
-	init(view: DetailViewProtocol, networks: Networks, comment: Comments?)
 	func setComment()
 }
