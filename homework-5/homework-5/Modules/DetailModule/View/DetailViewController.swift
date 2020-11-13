@@ -12,13 +12,13 @@ final class DetailViewController: UIViewController {
 // MARK: - View
 
 	@IBOutlet weak var commentLabel: UILabel!
-	var presenter: DetailViewPresenterProtocol!
+	var presenter: DetailViewPresenterProtocol?
 
 // MARK: - Life Cycle
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		presenter.setComment()
+		presenter?.setComment()
     }
 }
 

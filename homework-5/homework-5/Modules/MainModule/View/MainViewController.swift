@@ -12,7 +12,7 @@ final class MainViewController: UIViewController {
 // MARK: - View
 
 	@IBOutlet weak var tableView: UITableView!
-	var presenter: MainViewPresenterProtocol!
+	var presenter: MainViewPresenterProtocol?
 
 // MARK: - Life Cycle
 
@@ -27,12 +27,12 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return presenter.comments?.count ?? 0
+		return presenter?.comments?.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		let comment = presenter.comments?[indexPath.row]
+		let comment = presenter?.comments?[indexPath.row]
 		cell.textLabel?.text = comment?.body
 		return cell
 	}
@@ -42,7 +42,7 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let comment = presenter.comments?[indexPath.row]
+		let comment = presenter?.comments?[indexPath.row]
 		let detailViewController = ModuleBuilder.createDetailModule(comment: comment)
 		navigationController?.pushViewController(detailViewController, animated: true)
 	}
