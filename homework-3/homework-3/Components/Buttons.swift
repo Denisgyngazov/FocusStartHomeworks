@@ -9,5 +9,4 @@
 enum Buttons: String {
 	case press = "Press"
 	case enter = "Войти"
-
 }
