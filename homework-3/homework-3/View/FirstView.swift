@@ -1,40 +1,42 @@
 //
-//  ViewController.swift
+//  FirstView.swift
 //  homework-3
 //
-//  Created by Денис Гынгазов on 30.10.2020.
+//  Created by Денис Гынгазов on 14.11.2020.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class FirstView: UIView {
 
-	// MARK: - View
-	
-	private let firstLabel = UILabel()
-	private let secondLabel = UILabel()
-	private let thirdLabel = UILabel()
-	private var firstButton = UIButton()
-	private var secondButton = UIButton()
-	private let imageView = UIImageView()
-	private let activityIndicator = UIActivityIndicatorView()
-	
-	// MARK: - Life Сycle
+// MARK: - View
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+	private lazy var firstLabel = UILabel()
+	private lazy var secondLabel = UILabel()
+	private lazy var thirdLabel = UILabel()
+	private lazy var firstButton = UIButton()
+	private lazy var secondButton = UIButton()
+	private lazy var imageView = UIImageView()
+	private lazy var activityIndicator = UIActivityIndicatorView()
 
+// MARK: - Life Cycle
+
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 		setupViewApperance()
 		setupViewLayout()
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 }
 
 // MARK: - Apperance
 
-private extension ViewController {
+private extension FirstView {
 
 	func setupViewApperance() {
-		setupTabBarItemApperance()
 		setupFirstLabelApperance()
 		setupSecondLabelApperance()
 		setupThirdLabelApperance()
@@ -44,18 +46,10 @@ private extension ViewController {
 		setupActivityIndicatorApperance()
 	}
 
-	func setupTabBarItemApperance() {
-		var tabBarItem = UITabBarItem()
-		view.backgroundColor = .systemBlue
-		self.navigationItem.title = NavigationItems.firstScreen.rawValue
-		tabBarItem = UITabBarItem(title: TabBarItems.firstScreen.rawValue, image: .checkmark, tag: 0)
-		self.tabBarItem = tabBarItem
-	}
-
 	func setupFirstLabelApperance() {
 		firstLabel.text = Labels.firstLabel.rawValue
 		firstLabel.textColor = .white
-		view.addSubview(firstLabel)
+		self.addSubview(firstLabel)
 	}
 
 	func setupSecondLabelApperance() {
@@ -103,8 +97,8 @@ private extension ViewController {
 
 // MARK: - Layout
 
-private extension ViewController {
-	
+private extension FirstView {
+
 	func setupViewLayout() {
 		setupFirstLabelLayout()
 		setupSecondLabelLayout()
@@ -116,17 +110,17 @@ private extension ViewController {
 	}
 
 	func setupFirstLabelLayout() {
-		view.addSubview(firstLabel)
+		self.addSubview(firstLabel)
 		firstLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			firstLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-			firstLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+			firstLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+			firstLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor)
 		])
 	}
 
 	func setupSecondLabelLayout() {
-		view.addSubview(secondLabel)
+		self.addSubview(secondLabel)
 		secondLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -136,18 +130,18 @@ private extension ViewController {
 	}
 
 	func setupThirdLabelLayout() {
-		view.addSubview(thirdLabel)
+		self.addSubview(thirdLabel)
 		thirdLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
 			thirdLabel.topAnchor.constraint(equalTo: secondLabel.topAnchor, constant: 50),
 			thirdLabel.centerXAnchor.constraint(equalTo: secondLabel.centerXAnchor),
-			thirdLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/2)
+			thirdLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/2)
 		])
 	}
 
 	func setupFirstButtonLayout() {
-		view.addSubview(firstButton)
+		self.addSubview(firstButton)
 		firstButton.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -159,7 +153,7 @@ private extension ViewController {
 	}
 
 	func setupSecondButtonLayout() {
-		view.addSubview(secondButton)
+		self.addSubview(secondButton)
 		secondButton.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -171,19 +165,19 @@ private extension ViewController {
 	}
 
 	func setupFirstImageLayout() {
-		view.addSubview(imageView)
+		self.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
 			imageView.topAnchor.constraint(equalTo: secondButton.topAnchor,constant: 80),
 			imageView.centerXAnchor.constraint(equalTo: secondButton.centerXAnchor),
 			imageView.widthAnchor.constraint(equalTo: secondButton.widthAnchor),
-			imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+			imageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8)
 		])
 	}
 
 	func setupActivityIndicatorLayout() {
-		view.addSubview(activityIndicator)
+		self.addSubview(activityIndicator)
 		activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -193,3 +187,4 @@ private extension ViewController {
 		])
 	}
 }
+

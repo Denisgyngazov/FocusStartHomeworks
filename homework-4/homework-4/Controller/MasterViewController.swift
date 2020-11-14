@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+final class MasterViewController: UITableViewController {
 
 // MARK: - Property
 

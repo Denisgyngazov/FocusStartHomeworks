@@ -1,61 +1,57 @@
 //
-//  SecondViewController.swift
+//  SecondView.swift
 //  homework-3
 //
-//  Created by Денис Гынгазов on 30.10.2020.
+//  Created by Денис Гынгазов on 14.11.2020.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+final class SecondView: UIView {
 
-// MARK: - Properties
+	// MARK: - Properties
 
 	private var sharedConstraints: [NSLayoutConstraint] = []
 	private var compactConstraints: [NSLayoutConstraint] = []
 	private var regularConstraints: [NSLayoutConstraint] = []
-
-// MARK: - View
+	
+	// MARK: - View
 
 	private let scrollView = UIScrollView()
 	private let imageView = UIImageView()
 	private let textLabel = UILabel()
 	private var titleLabel = UILabel()
 
-// MARK: - Life Cycle
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 		setupViewApperance()
 		setupViewLayout()
 		changeviewsLayout(traitCollection: traitCollection)
 	}
-// MARK: - Changes Cycle
 
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	// MARK: - Changes Cycle
+	
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 		changeviewsLayout(traitCollection: traitCollection)
 	}
 }
 
+
+
+
 // MARK: - Apperance
 
-private extension SecondViewController {
+private extension SecondView {
 
 	func setupViewApperance() {
-		setupTabBarItemApperance()
 		setupImageViewApperance()
 		setupTitleLabelApperance()
 		setupTextLabelApperance()
-	}
-
-	func setupTabBarItemApperance() {
-		var tabBarItem = UITabBarItem()
-		view.backgroundColor = .systemBlue
-		self.navigationItem.title = NavigationItems.secondScreen.rawValue
-		tabBarItem = UITabBarItem(title: TabBarItems.secondScreen.rawValue, image: .checkmark, tag: 1)
-		self.tabBarItem = tabBarItem
 	}
 
 	func setupImageViewApperance() {
@@ -78,7 +74,7 @@ private extension SecondViewController {
 
 // MARK: -  Shared Layout
 
-private extension SecondViewController {
+private extension SecondView {
 	func changeviewsLayout(traitCollection: UITraitCollection) {
 		switch(traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.compact, .regular) :
@@ -106,15 +102,15 @@ private extension SecondViewController {
 	}
 
 	func setupScrollViewLayout() {
-		view.addSubview(scrollView)
+		self.addSubview(scrollView)
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
 
 		sharedConstraints.append(contentsOf: [
-			scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-			scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor)
+			scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+			scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+			scrollView.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor)
 		])
 	}
 
@@ -144,15 +140,15 @@ private extension SecondViewController {
 
 		NSLayoutConstraint.activate([
 			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-			titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+			titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			titleLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor)
 		])
 	}
 }
 
 // MARK: - Compact Layout
 
-private extension SecondViewController {
+private extension SecondView {
 	func setupCompactLayout() {
 		setupImageViewCompactLayot()
 		setupTextLabelCompactLayout()
@@ -160,22 +156,22 @@ private extension SecondViewController {
 
 	func setupImageViewCompactLayot() {
 		compactConstraints.append(contentsOf: [
-			imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			imageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
 		])
 	}
 
 	func setupTextLabelCompactLayout() {
 		compactConstraints.append(contentsOf: [
-			textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			textLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 15),
+			textLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			textLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 15),
 		])
 	}
 }
 
 // MARK: - Regular Layout
 
-private extension SecondViewController {
+private extension SecondView {
 	func setupRegularLayout() {
 		setupImageViewRegularLayot()
 		setupTitleLabelRegularLayout()
@@ -185,7 +181,7 @@ private extension SecondViewController {
 	func setupImageViewRegularLayot() {
 		regularConstraints.append(contentsOf: [
 			imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-			imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+			imageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
 			imageView.bottomAnchor.constraint(equalTo: textLabel.topAnchor, constant: -10),
 			imageView.widthAnchor.constraint(equalToConstant: 200),
 			imageView.heightAnchor.constraint(equalToConstant: 200)
@@ -195,7 +191,7 @@ private extension SecondViewController {
 	func setupTitleLabelRegularLayout() {
 		regularConstraints.append(contentsOf: [
 			titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor),
-			titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			titleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
 			titleLabel.heightAnchor.constraint(equalTo: imageView.heightAnchor),
 			titleLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
 		])
@@ -203,8 +199,9 @@ private extension SecondViewController {
 
 	func setupTextLabelRegularLayout() {
 		regularConstraints.append(contentsOf: [
-			textLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10)
+			textLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			textLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10)
 		])
 	}
 }
+

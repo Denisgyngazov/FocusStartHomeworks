@@ -1,18 +1,18 @@
 //
-//  ThirdViewController.swift
+//  ThirdView.swift
 //  homework-3
 //
-//  Created by Денис Гынгазов on 30.10.2020.
+//  Created by Денис Гынгазов on 14.11.2020.
 //
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+final class ThirdView: UIView {
 
 // MARK: - Property
 
 	private var enterButtonLayoutConstraint: NSLayoutConstraint?
-
+	
 // MARK: - View
 
 	private let loginTexField = UITextField()
@@ -22,8 +22,8 @@ class ThirdViewController: UIViewController {
 
 // MARK: - Life Cycle
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 
 		setupViewApperance()
 		setupViewLayout()
@@ -31,26 +31,20 @@ class ThirdViewController: UIViewController {
 		initializeHideKeyboard()
 		setupTextFieldShouldReturn()
 	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 }
 
 // MARK: - Apperance
 
-private extension ThirdViewController {
+private extension ThirdView {
 
 	func setupViewApperance() {
-		setupTabBarItemApperance()
 		setupLoginTextFieldApperance()
 		setupPasswordTextFieldAppearance()
 		setupEnterButtonApperance()
-	}
-
-	func setupTabBarItemApperance() {
-		var tabBarItem = UITabBarItem()
-		view.backgroundColor = .systemBlue
-		self.navigationItem.title = NavigationItems.thirdScreen.rawValue
-		tabBarItem = UITabBarItem(title: TabBarItems.thirdScreen.rawValue,
-								  image: .checkmark, tag: 2)
-		self.tabBarItem = tabBarItem
 	}
 
 	func setupLoginTextFieldApperance() {
@@ -75,7 +69,7 @@ private extension ThirdViewController {
 
 // MARK: - Extension TextFieldDelegate
 
-extension ThirdViewController: UITextFieldDelegate {
+extension ThirdView: UITextFieldDelegate {
 	func setupTextFieldShouldReturn() {
 		loginTexField.delegate = self
 		passwordTextField.delegate = self
@@ -85,7 +79,7 @@ extension ThirdViewController: UITextFieldDelegate {
 	}
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		if let nextField = self.view.viewWithTag(textField.tag + 1) as? UITextField {
+		if let nextField = self.viewWithTag(textField.tag + 1) as? UITextField {
 			nextField.becomeFirstResponder()
 		} else {
 			textField.resignFirstResponder()
@@ -96,18 +90,18 @@ extension ThirdViewController: UITextFieldDelegate {
 
 // MARK: -  Keyboard
 
-private extension ThirdViewController {
+private extension ThirdView {
 	func initializeHideKeyboard() {
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissMyKeyboard))
-		view.addGestureRecognizer(tap)
+		self.addGestureRecognizer(tap)
 	}
 
 	@objc func dismissMyKeyboard() {
-		view.endEditing(true)
+		self.endEditing(true)
 	}
 }
 
-private extension ThirdViewController {
+private extension ThirdView {
 	func setupNotificationKeyboard() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 
@@ -119,24 +113,24 @@ private extension ThirdViewController {
 			  let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
 
 		if enterButtonLayoutConstraint?.constant == -10 {
-			let keyboard = view.safeAreaInsets.bottom - keyboardSize.cgRectValue.height
+			let keyboard = self.safeAreaInsets.bottom - keyboardSize.cgRectValue.height
 			enterButtonLayoutConstraint?.constant = keyboard - 10
-			UIView.animate(withDuration: 0.5, delay: 0, animations: {self.view.layoutIfNeeded()})
+			UIView.animate(withDuration: 0.5, delay: 0, animations: {self.layoutIfNeeded()})
 		}
 	}
 
 	@objc func keyboardWillHide(notification: NSNotification) {
 		if enterButtonLayoutConstraint?.constant != -10 {
 			enterButtonLayoutConstraint?.constant = -10
-			UIView.animate(withDuration: 0.5, delay: 0, animations: {self.view.layoutIfNeeded()})
+			UIView.animate(withDuration: 0.5, delay: 0, animations: {self.layoutIfNeeded()})
 		}
 	}
 }
 
 // MARK: - Layout
 
-private extension ThirdViewController {
-	
+private extension ThirdView {
+
 	func setupViewLayout() {
 		setupLoginTextFieldLayout()
 		setupPasswordTextFieldLayout()
@@ -144,39 +138,39 @@ private extension ThirdViewController {
 	}
 
 	func setupLoginTextFieldLayout() {
-		view.addSubview(loginTexField)
+		self.addSubview(loginTexField)
 		loginTexField.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			loginTexField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-			loginTexField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-			loginTexField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15)
+			loginTexField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+			loginTexField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+			loginTexField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 15)
 		])
 	}
 
 	func setupPasswordTextFieldLayout() {
-		view.addSubview(passwordTextField)
+		self.addSubview(passwordTextField)
 		passwordTextField.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			passwordTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-			passwordTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+			passwordTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+			passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
 			passwordTextField.topAnchor.constraint(equalTo: loginTexField.bottomAnchor , constant: 15)
 		])
 	}
 
 	func setupEnterButtonLayout() {
-		view.addSubview(enterButton)
+		self.addSubview(enterButton)
 		enterButton.translatesAutoresizingMaskIntoConstraints = false
 
-		enterButtonLayoutConstraint = enterButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+		enterButtonLayoutConstraint = enterButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10)
 		enterButtonLayoutConstraint?.isActive = true
 
 		NSLayoutConstraint.activate([
 			enterButton.widthAnchor.constraint(equalToConstant: 160),
 			enterButton.heightAnchor.constraint(equalToConstant: 60),
-			enterButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-			enterButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+			enterButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+			enterButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
 }

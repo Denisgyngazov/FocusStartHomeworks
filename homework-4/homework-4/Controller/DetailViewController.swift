@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
 // MARK: - View
 
@@ -42,7 +42,6 @@ class DetailViewController: UIViewController {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
 }
 
 // MARK: - Apperance
@@ -62,12 +61,11 @@ private extension DetailViewController {
 
 	func setupFirstImageApperance() {
 		firstImage.image = UIImage(named: Images.firsImage.rawValue)
-		firstImage.cornerRadius = 10
 	}
 
 	func setupSecondImageApperance() {
 		secondImage.image = UIImage(named: Images.secondImage.rawValue)
-		firstImage.cornerRadius = 10
+	
 	}
 }
  // MARK: - Layout

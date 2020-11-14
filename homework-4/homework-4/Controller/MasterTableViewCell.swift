@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterTableViewCell: UITableViewCell {
+final class MasterTableViewCell: UITableViewCell {
 
 // MARK: - View
 

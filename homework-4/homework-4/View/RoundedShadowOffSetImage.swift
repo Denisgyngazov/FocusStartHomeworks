@@ -11,13 +11,13 @@ final class RoundedShadowImageView: UIView {
 
 // MARK: Properties
 
-	var cornerRadius: CGFloat = 16
-	var shadowColor: CGColor = UIColor.black.cgColor
-	var shadowOpacity: Float = 1
-	var shadowRadius: CGFloat = 5
-	var shadowOffset: CGSize = .zero
+	private let cornerRadius: CGFloat = 16
+	private let shadowColor: CGColor = UIColor.black.cgColor
+	private let shadowOpacity: Float = 1
+	private let shadowRadius: CGFloat = 5
+	private let shadowOffset: CGSize = .zero
 
-	var image: UIImage? {
+	private let image: UIImage? {
 		didSet {
 			setNeedsLayout()
 		}
