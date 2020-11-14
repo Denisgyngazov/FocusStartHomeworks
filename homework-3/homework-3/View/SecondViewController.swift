@@ -10,7 +10,7 @@ import UIKit
 class SecondViewController: UIViewController {
 
 // MARK: - Properties
-
+	
 	private var sharedConstraints: [NSLayoutConstraint] = []
 	private var compactConstraints: [NSLayoutConstraint] = []
 	private var regularConstraints: [NSLayoutConstraint] = []
