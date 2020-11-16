@@ -11,13 +11,13 @@ final class FirstView: UIView {
 
 // MARK: - View
 
-	private lazy var firstLabel = UILabel()
-	private lazy var secondLabel = UILabel()
-	private lazy var thirdLabel = UILabel()
-	private lazy var firstButton = UIButton()
-	private lazy var secondButton = UIButton()
-	private lazy var imageView = UIImageView()
-	private lazy var activityIndicator = UIActivityIndicatorView()
+	private let firstLabel = UILabel()
+	private let secondLabel = UILabel()
+	private let thirdLabel = UILabel()
+	private var firstButton = UIButton()
+	private var secondButton = UIButton()
+	private let imageView = UIImageView()
+	private let activityIndicator = UIActivityIndicatorView()
 
 // MARK: - Constants
 	
@@ -39,6 +39,7 @@ final class FirstView: UIView {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		self.backgroundColor = .systemBlue
 		setupViewApperance()
 		setupViewLayout()
 	}

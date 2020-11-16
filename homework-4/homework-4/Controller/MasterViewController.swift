@@ -67,7 +67,7 @@ private extension MasterViewController {
 			detailViewController.title = mockData[indexPath.row].title
 			let navigationController = UINavigationController(rootViewController: detailViewController)
 			self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-		}
+	}
 }
 
 

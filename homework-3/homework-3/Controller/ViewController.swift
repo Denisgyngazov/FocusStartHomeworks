@@ -17,17 +17,8 @@ final class ViewController: UIViewController {
 
 	override func loadView() {
 		self.view = firstView
-		setupTabBarItemApperance()
 	}
 }
 
-private extension ViewController {
-	func setupTabBarItemApperance() {
-		var tabBarItem = UITabBarItem()
-		view.backgroundColor = .systemBlue
-		self.navigationItem.title = NavigationItems.firstScreen.rawValue
-		tabBarItem = UITabBarItem(title: TabBarItems.firstScreen.rawValue, image: .checkmark, tag: 0)
-		self.tabBarItem = tabBarItem
-	}
-}
+
 

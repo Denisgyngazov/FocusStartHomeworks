@@ -6,7 +6,7 @@
 //
 
 enum TabBarItems: String {
-	case firstScreen = "Первый экран"
-	case secondScreen = "Второй экран"
-	case thirdScreen = "Третий экран"
+	case firstScreen = "First view"
+	case secondScreen = "Second view"
+	case thirdScreen = "Third view"
 }

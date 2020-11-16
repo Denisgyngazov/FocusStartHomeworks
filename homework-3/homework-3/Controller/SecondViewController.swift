@@ -17,20 +17,8 @@ final class SecondViewController: UIViewController {
 
 	override func loadView() {
 		self.view = secondView
-		setupTabBarItemApperance()
 	}
 }
 
-// MARK: - Apperance
 
-private extension SecondViewController {
-
-	func setupTabBarItemApperance() {
-		var tabBarItem = UITabBarItem()
-		view.backgroundColor = .systemBlue
-		self.navigationItem.title = NavigationItems.secondScreen.rawValue
-		tabBarItem = UITabBarItem(title: TabBarItems.secondScreen.rawValue, image: .checkmark, tag: 1)
-		self.tabBarItem = tabBarItem
-	}
-}
 

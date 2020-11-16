@@ -40,6 +40,7 @@ final class SecondView: UIView {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		self.backgroundColor = .systemBlue
 		setupViewApperance()
 		setupViewLayout()
 		changeviewsLayout(traitCollection: traitCollection)

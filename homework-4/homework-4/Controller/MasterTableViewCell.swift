@@ -19,11 +19,19 @@ final class MasterTableViewCell: UITableViewCell {
 
 	static let identifaer = String(describing: MasterTableViewCell.self)
 
-// MARK: - Fonst
-
 	private enum Fonts {
 		static let descriptionFont = UIFont.italicSystemFont(ofSize: 15)
 		static let titleFont = UIFont.systemFont(ofSize: 20, weight: .semibold)
+	}
+
+	private enum Constants {
+		static let topAnchor: CGFloat = 10
+		static let leadingAnchor: CGFloat = 10
+		static let trailingAnchor: CGFloat = 10
+		static let bottomAnchor: CGFloat = 10
+		static let imageWidthAnchor: CGFloat = 300
+		static let imageHeightAnchor: CGFloat = 300
+		static let numberOfLines: Int = 0
 	}
 
 // MARK: - Configure cell
@@ -48,12 +56,12 @@ private extension MasterTableViewCell {
 
 	func setupTitleLabel() {
 		titleLabel.font = Fonts.titleFont
-		titleLabel.numberOfLines = 0
+		titleLabel.numberOfLines = Constants.numberOfLines
 	}
 
 	func setupDescriptionLabel() {
 		descriptionLabel.font = Fonts.descriptionFont
-		descriptionLabel.numberOfLines = 0
+		descriptionLabel.numberOfLines = Constants.numberOfLines
 	}
 
 	func setupTimeLabel() {
@@ -76,9 +84,12 @@ private extension MasterTableViewCell {
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-			titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
+			titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+												constant: Constants.leadingAnchor),
+			titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+												 constant: -Constants.trailingAnchor),
+			titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor,
+											constant: Constants.topAnchor)
 		])
 	}
 
@@ -87,10 +98,12 @@ private extension MasterTableViewCell {
 		descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-
-			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-			descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-			descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
+												  constant: Constants.topAnchor),
+			descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+													  constant: Constants.leadingAnchor),
+			descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+													 constant: -Constants.bottomAnchor)
 		])
 	}
 
@@ -100,9 +113,10 @@ private extension MasterTableViewCell {
 
 		NSLayoutConstraint.activate([
 		timeLabel.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
-		timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-		timeLabel.leadingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor, constant: 10)
+			timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+												constant: -Constants.trailingAnchor),
+			timeLabel.leadingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor,
+											   constant: Constants.leadingAnchor)
 		])
 	}
-
 }

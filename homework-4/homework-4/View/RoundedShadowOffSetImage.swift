@@ -17,7 +17,7 @@ final class RoundedShadowImageView: UIView {
 	private let shadowRadius: CGFloat = 5
 	private let shadowOffset: CGSize = .zero
 
-	private let image: UIImage? {
+	var image: UIImage? {
 		didSet {
 			setNeedsLayout()
 		}

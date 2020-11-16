@@ -17,20 +17,8 @@ final class ThirdViewController: UIViewController {
 
 	override func loadView() {
 		self.view = thirdView
-		setupTabBarItemApperance()
 	}
 }
 
-// MARK: - Apperance
 
-private extension ThirdViewController {
-	func setupTabBarItemApperance() {
-		var tabBarItem = UITabBarItem()
-		view.backgroundColor = .systemBlue
-		self.navigationItem.title = NavigationItems.thirdScreen.rawValue
-		tabBarItem = UITabBarItem(title: TabBarItems.thirdScreen.rawValue,
-								  image: .checkmark, tag: 2)
-		self.tabBarItem = tabBarItem
-	}
-}
 

@@ -39,6 +39,8 @@ final class ThirdView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
+		self.backgroundColor = .systemBlue
+
 		setupViewApperance()
 		setupViewLayout()
 		setupNotificationKeyboard()
