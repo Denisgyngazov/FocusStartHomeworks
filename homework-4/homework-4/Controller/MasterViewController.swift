@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+final class MasterViewController: UITableViewController {
 
 // MARK: - Property
 
@@ -67,7 +67,7 @@ private extension MasterViewController {
 			detailViewController.title = mockData[indexPath.row].title
 			let navigationController = UINavigationController(rootViewController: detailViewController)
 			self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-		}
+	}
 }
 
 
