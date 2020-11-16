@@ -10,4 +10,5 @@ import Foundation
 protocol MainViewPresenterProtocol: AnyObject {
 	func getComments()
 	var comments: [Comments]? { get set }
+	func tapOnTheComment(comment: Comments?)
 }

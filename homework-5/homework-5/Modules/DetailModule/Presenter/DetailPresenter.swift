@@ -12,20 +12,23 @@ final class DetailPresenter: DetailViewPresenterProtocol {
 // MARK: - Property
 
 	weak var view: DetailViewProtocol?
+	var router: RouterProtocol?
 	var networks: NetworksProtocol
 	var comment: Comments?
 
 // MARK: - Init
-
-	init(view: DetailViewProtocol, networks: Networks, comment: Comments?) {
+	
+	init(view: DetailViewProtocol, networks: NetworksProtocol, router: RouterProtocol, comment: Comments?) {
 		self.view = view
 		self.comment = comment
 		self.networks = networks
+		self.router = router
 	}
+
 
 // MARK: - Set comment
 
-	public func setComment() {
+	public func viewComment() {
 		self.view?.setComment(comment: comment)
 	}
 }

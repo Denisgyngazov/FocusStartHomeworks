@@ -18,8 +18,9 @@ final class DetailViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		presenter?.setComment()
+		presenter?.viewComment()
     }
+	
 }
 
 // MARK: - Set comment

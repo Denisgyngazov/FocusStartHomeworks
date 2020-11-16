@@ -12,15 +12,21 @@ final class MainPresenter: MainViewPresenterProtocol {
 // MARK: - Property
 
 	weak var view: MainViewProtocol?
+	var router: RouterProtocol?
 	var networks: NetworksProtocol
 	var comments: [Comments]?
 
 // MARK: - Init
 
-	init(view: MainViewProtocol, networks: NetworksProtocol) {
+	init(view: MainViewProtocol, networks: NetworksProtocol, router: RouterProtocol) {
 		self.view = view
 		self.networks = networks
+		self.router = router
 		getComments()
+	}
+
+	func tapOnTheComment(comment: Comments?) {
+		router?.showDetail(comment: comment)
 	}
 
 // MARK: - Get comments

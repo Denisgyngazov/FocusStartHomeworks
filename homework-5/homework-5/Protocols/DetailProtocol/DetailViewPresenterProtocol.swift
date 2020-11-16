@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DetailViewPresenterProtocol: AnyObject {
-	func setComment()
+	func viewComment()
 }
