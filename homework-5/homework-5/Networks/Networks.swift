@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol NetworksProtocol {
+	func getComments(completion: @escaping (Result<[Comments]?, Error>) -> ())
+}
+
 final class Networks: NetworksProtocol {
 	func getComments(completion: @escaping (Result<[Comments]?, Error>) -> ()) {
 		let urlString = "https://jsonplaceholder.typicode.com/comments"

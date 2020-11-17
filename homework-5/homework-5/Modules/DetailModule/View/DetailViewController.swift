@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DetailViewProtocol: AnyObject {
+	func setComment(comment: Comments?)
+}
+
 final class DetailViewController: UIViewController {
 
 // MARK: - View

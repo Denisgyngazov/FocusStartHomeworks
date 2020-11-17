@@ -7,16 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C42BAA17256392C70045ED64 /* AssemblyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42BAA16256392C70045ED64 /* AssemblyDetail.swift */; };
 		C457F596255CF32A0010325E /* Networks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F595255CF32A0010325E /* Networks.swift */; };
-		C457F59A255CF3BA0010325E /* NetworksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F599255CF3BA0010325E /* NetworksProtocol.swift */; };
-		C457F5A4255D02620010325E /* AssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F5A3255D02620010325E /* AssemblyProtocol.swift */; };
-		C457F5A8255D036C0010325E /* DetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F5A7255D036C0010325E /* DetailViewProtocol.swift */; };
-		C457F5AC255D03D90010325E /* DetailViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F5AB255D03D90010325E /* DetailViewPresenterProtocol.swift */; };
 		C457F5AF255D045C0010325E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F5AE255D045C0010325E /* DetailPresenter.swift */; };
 		C457F5B7255D07BF0010325E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457F5B5255D07BF0010325E /* DetailViewController.swift */; };
 		C457F5B8255D07BF0010325E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C457F5B6255D07BF0010325E /* DetailViewController.xib */; };
-		C475E88825623AAE00415C10 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E88725623AAE00415C10 /* Router.swift */; };
-		C475E89B25624BE800415C10 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475E89A25624BE800415C10 /* RouterProtocol.swift */; };
 		C481764B255CD01700DF1C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481764A255CD01700DF1C12 /* AppDelegate.swift */; };
 		C481764D255CD01700DF1C12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481764C255CD01700DF1C12 /* SceneDelegate.swift */; };
 		C481764F255CD01700DF1C12 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481764E255CD01700DF1C12 /* MainViewController.swift */; };
@@ -24,24 +19,17 @@
 		C4817654255CD01700DF1C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4817653255CD01700DF1C12 /* Assets.xcassets */; };
 		C4817657255CD01700DF1C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4817655255CD01700DF1C12 /* LaunchScreen.storyboard */; };
 		C4A373EA255CD3B700A7752B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A373E9255CD3B700A7752B /* MainPresenter.swift */; };
-		C4A373ED255CD4ED00A7752B /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A373EC255CD4ED00A7752B /* MainViewProtocol.swift */; };
-		C4A373F0255CD50C00A7752B /* MainViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A373EF255CD50C00A7752B /* MainViewPresenterProtocol.swift */; };
 		C4A373F5255CD57A00A7752B /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A373F4255CD57A00A7752B /* MockData.swift */; };
 		C4A373FE255CE22400A7752B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A373FD255CE22400A7752B /* MainViewController.xib */; };
-		C4A37401255CE48200A7752B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A37400255CE48200A7752B /* Assembly.swift */; };
+		C4A37401255CE48200A7752B /* AssemblyMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A37400255CE48200A7752B /* AssemblyMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C42BAA16256392C70045ED64 /* AssemblyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyDetail.swift; sourceTree = "<group>"; };
 		C457F595255CF32A0010325E /* Networks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networks.swift; sourceTree = "<group>"; };
-		C457F599255CF3BA0010325E /* NetworksProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworksProtocol.swift; sourceTree = "<group>"; };
-		C457F5A3255D02620010325E /* AssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyProtocol.swift; sourceTree = "<group>"; };
-		C457F5A7255D036C0010325E /* DetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProtocol.swift; sourceTree = "<group>"; };
-		C457F5AB255D03D90010325E /* DetailViewPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewPresenterProtocol.swift; sourceTree = "<group>"; };
 		C457F5AE255D045C0010325E /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		C457F5B5255D07BF0010325E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C457F5B6255D07BF0010325E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
-		C475E88725623AAE00415C10 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		C475E89A25624BE800415C10 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		C4817647255CD01700DF1C12 /* homework-5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homework-5.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C481764A255CD01700DF1C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C481764C255CD01700DF1C12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,11 +39,9 @@
 		C4817656255CD01700DF1C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4817658255CD01700DF1C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4A373E9255CD3B700A7752B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		C4A373EC255CD4ED00A7752B /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
-		C4A373EF255CD50C00A7752B /* MainViewPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenterProtocol.swift; sourceTree = "<group>"; };
 		C4A373F4255CD57A00A7752B /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		C4A373FD255CE22400A7752B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		C4A37400255CE48200A7752B /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		C4A37400255CE48200A7752B /* AssemblyMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,32 +72,13 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		C457F59F255D01E50010325E /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				C475E89525624BC800415C10 /* RouterProtocol */,
-				C4A373F2255CD51C00A7752B /* MainProtocol */,
-				C457F5B3255D07420010325E /* DetailProtocol */,
-				C457F5A2255D022B0010325E /* AssemblyProtocol */,
-				C457F5BA255D0E3C0010325E /* NetworksProtocol */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		C457F5A1255D02110010325E /* AssemblyBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				C4A37400255CE48200A7752B /* Assembly.swift */,
+				C4A37400255CE48200A7752B /* AssemblyMain.swift */,
+				C42BAA16256392C70045ED64 /* AssemblyDetail.swift */,
 			);
 			path = AssemblyBuilder;
-			sourceTree = "<group>";
-		};
-		C457F5A2255D022B0010325E /* AssemblyProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				C457F5A3255D02620010325E /* AssemblyProtocol.swift */,
-			);
-			path = AssemblyProtocol;
 			sourceTree = "<group>";
 		};
 		C457F5B1255D064E0010325E /* DetailModule */ = {
@@ -131,15 +98,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		C457F5B3255D07420010325E /* DetailProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				C457F5A7255D036C0010325E /* DetailViewProtocol.swift */,
-				C457F5AB255D03D90010325E /* DetailViewPresenterProtocol.swift */,
-			);
-			path = DetailProtocol;
-			sourceTree = "<group>";
-		};
 		C457F5B4255D07970010325E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,30 +105,6 @@
 				C457F5B6255D07BF0010325E /* DetailViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C457F5BA255D0E3C0010325E /* NetworksProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				C457F599255CF3BA0010325E /* NetworksProtocol.swift */,
-			);
-			path = NetworksProtocol;
-			sourceTree = "<group>";
-		};
-		C475E89525624BC800415C10 /* RouterProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				C475E89A25624BE800415C10 /* RouterProtocol.swift */,
-			);
-			path = RouterProtocol;
-			sourceTree = "<group>";
-		};
-		C475E89E25624C4400415C10 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				C475E88725623AAE00415C10 /* Router.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		C481763E255CD01600DF1C12 = {
@@ -192,10 +126,8 @@
 		C4817649255CD01700DF1C12 /* homework-5 */ = {
 			isa = PBXGroup;
 			children = (
-				C475E89E25624C4400415C10 /* Router */,
 				C457F5A1255D02110010325E /* AssemblyBuilder */,
 				C457F59E255D01D70010325E /* Modules */,
-				C457F59F255D01E50010325E /* Protocols */,
 				C457F598255CF3400010325E /* Networks */,
 				C481765F255CD02500DF1C12 /* Delegates */,
 				C4817661255CD06100DF1C12 /* Storyboard */,
@@ -229,15 +161,6 @@
 				C4817655255CD01700DF1C12 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		C4A373F2255CD51C00A7752B /* MainProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				C4A373EF255CD50C00A7752B /* MainViewPresenterProtocol.swift */,
-				C4A373EC255CD4ED00A7752B /* MainViewProtocol.swift */,
-			);
-			path = MainProtocol;
 			sourceTree = "<group>";
 		};
 		C4A373F8255CE17D00A7752B /* MainModule */ = {
@@ -349,20 +272,13 @@
 			files = (
 				C4A373EA255CD3B700A7752B /* MainPresenter.swift in Sources */,
 				C481764F255CD01700DF1C12 /* MainViewController.swift in Sources */,
-				C475E88825623AAE00415C10 /* Router.swift in Sources */,
-				C457F5A4255D02620010325E /* AssemblyProtocol.swift in Sources */,
-				C4A373F0255CD50C00A7752B /* MainViewPresenterProtocol.swift in Sources */,
-				C4A373ED255CD4ED00A7752B /* MainViewProtocol.swift in Sources */,
 				C457F5AF255D045C0010325E /* DetailPresenter.swift in Sources */,
 				C457F596255CF32A0010325E /* Networks.swift in Sources */,
 				C481764B255CD01700DF1C12 /* AppDelegate.swift in Sources */,
-				C475E89B25624BE800415C10 /* RouterProtocol.swift in Sources */,
-				C4A37401255CE48200A7752B /* Assembly.swift in Sources */,
+				C4A37401255CE48200A7752B /* AssemblyMain.swift in Sources */,
 				C4A373F5255CD57A00A7752B /* MockData.swift in Sources */,
-				C457F5AC255D03D90010325E /* DetailViewPresenterProtocol.swift in Sources */,
-				C457F5A8255D036C0010325E /* DetailViewProtocol.swift in Sources */,
 				C457F5B7255D07BF0010325E /* DetailViewController.swift in Sources */,
-				C457F59A255CF3BA0010325E /* NetworksProtocol.swift in Sources */,
+				C42BAA17256392C70045ED64 /* AssemblyDetail.swift in Sources */,
 				C481764D255CD01700DF1C12 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

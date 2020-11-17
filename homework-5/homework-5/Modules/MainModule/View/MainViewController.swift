@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol MainViewProtocol: AnyObject {
+	func succes()
+	func failure(error: Error)
+}
+
 final class MainViewController: UIViewController {
 
 // MARK: - View
@@ -42,7 +47,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let comment = presenter?.comments?[indexPath.row]
-		presenter?.tapOnTheComment(comment: comment)
+		let detailViewController = AssemblyDetailBuilder.createDetailModule(comment: comment)
+		navigationController?.pushViewController(detailViewController, animated: true)
 	}
 }
 

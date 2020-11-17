@@ -7,26 +7,25 @@
 
 import Foundation
 
+protocol MainViewPresenterProtocol: AnyObject {
+	func getComments()
+	var comments: [Comments]? { get set }
+}
+
 final class MainPresenter: MainViewPresenterProtocol {
 
 // MARK: - Property
 
-	weak var view: MainViewProtocol?
-	var router: RouterProtocol?
-	var networks: NetworksProtocol
+	private weak var view: MainViewProtocol?
+	private var networks: NetworksProtocol
 	var comments: [Comments]?
 
 // MARK: - Init
 
-	init(view: MainViewProtocol, networks: NetworksProtocol, router: RouterProtocol) {
+	init(view: MainViewProtocol, networks: NetworksProtocol) {
 		self.view = view
 		self.networks = networks
-		self.router = router
 		getComments()
-	}
-
-	func tapOnTheComment(comment: Comments?) {
-		router?.showDetail(comment: comment)
 	}
 
 // MARK: - Get comments

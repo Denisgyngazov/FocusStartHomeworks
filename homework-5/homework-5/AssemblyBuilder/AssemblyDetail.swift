@@ -1,0 +1,22 @@
+//
+//  AssemblyDetail.swift
+//  homework-5
+//
+//  Created by Денис Гынгазов on 17.11.2020.
+//
+
+import UIKit
+
+protocol AssemblyDetailModuleProtocol {
+	static func createDetailModule(comment: Comments?) -> UIViewController
+}
+
+final class AssemblyDetailBuilder: AssemblyDetailModuleProtocol {
+	static func createDetailModule(comment: Comments?) -> UIViewController {
+		let view = DetailViewController()
+		let networks = Networks()
+		let presenter = DetailPresenter(view: view, networks: networks, comment: comment)
+		view.presenter = presenter
+		return view
+	}
+}

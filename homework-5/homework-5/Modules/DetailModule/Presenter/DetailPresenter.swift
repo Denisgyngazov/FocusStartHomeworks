@@ -7,24 +7,25 @@
 
 import Foundation
 
+protocol DetailViewPresenterProtocol: AnyObject {
+	func viewComment()
+}
+
 final class DetailPresenter: DetailViewPresenterProtocol {
 
 // MARK: - Property
 
-	weak var view: DetailViewProtocol?
-	var router: RouterProtocol?
-	var networks: NetworksProtocol
-	var comment: Comments?
+	private weak var view: DetailViewProtocol?
+	private var networks: NetworksProtocol
+	private var comment: Comments?
 
 // MARK: - Init
 	
-	init(view: DetailViewProtocol, networks: NetworksProtocol, router: RouterProtocol, comment: Comments?) {
+	init(view: DetailViewProtocol, networks: NetworksProtocol, comment: Comments?) {
 		self.view = view
 		self.comment = comment
 		self.networks = networks
-		self.router = router
 	}
-
 
 // MARK: - Set comment
 
