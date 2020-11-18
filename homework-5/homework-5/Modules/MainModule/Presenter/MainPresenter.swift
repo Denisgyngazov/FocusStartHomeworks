@@ -38,9 +38,9 @@ final class MainPresenter: MainViewPresenterProtocol {
 				switch result {
 				case .success(let comments):
 					self.comments = comments
-					self.view?.succes()
+					self.view?.reloadView()
 				case .failure(let error):
-					self.view?.failure(error: error)
+					self.view?.set(error: error)
 				}
 			}
 		}

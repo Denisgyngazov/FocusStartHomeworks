@@ -8,8 +8,8 @@
 import UIKit
 
 protocol MainViewProtocol: AnyObject {
-	func succes()
-	func failure(error: Error)
+	func reloadView()
+	func set(error: Error)
 }
 
 final class MainViewController: UIViewController {
@@ -55,11 +55,11 @@ extension MainViewController: UITableViewDelegate {
 // MARK: - Succes && Failure Allert
 
 extension MainViewController: MainViewProtocol {
-	func succes() {
+	func reloadView() {
 		tableView.reloadData()
 	}
 
-	func failure(error: Error) {
+	func set(error: Error) {
 		let alertController = UIAlertController(title: "Failure", message: "Unsuccessful download", preferredStyle: .alert)
 		let action = UIAlertAction(title: "Ok", style: .default) { (action) in
 		}

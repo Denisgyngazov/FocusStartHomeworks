@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol AssemblyDetailModuleProtocol {
-	static func createDetailModule(comment: Comments?) -> UIViewController
-}
-
-final class AssemblyDetailBuilder: AssemblyDetailModuleProtocol {
+enum AssemblyDetailBuilder {
 	static func createDetailModule(comment: Comments?) -> UIViewController {
 		let view = DetailViewController()
 		let networks = Networks()

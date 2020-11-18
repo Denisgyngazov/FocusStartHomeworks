@@ -11,7 +11,7 @@ protocol AssemblyMainModuleProtocol {
 	static func createMainModule() -> UIViewController
 }
 
-final class AssemblyMainBuilder: AssemblyMainModuleProtocol {
+enum AssemblyMainBuilder: AssemblyMainModuleProtocol {
 	static func createMainModule() -> UIViewController {
 		let view = MainViewController()
 		let networks = Networks()
