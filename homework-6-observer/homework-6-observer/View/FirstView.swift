@@ -75,7 +75,7 @@ extension FirstView: Observer {
 
 // MARK: - Apperance
 
-extension FirstView {
+private extension FirstView {
 	func setupViewApperance() {
 		setupFirstLabelApperance()
 		setupFirstButtonApperance()
@@ -98,7 +98,7 @@ extension FirstView {
 }
 // MARK: - Layout
 
-extension FirstView {
+private extension FirstView {
 	func setupViewLayout() {
 		setupFirstLabelLayout()
 		setupFirstButtonLayout()
