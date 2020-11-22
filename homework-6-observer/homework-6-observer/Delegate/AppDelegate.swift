@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  homework-6-observer
 //
-//  Created by Денис Гынгазов on 19.11.2020.
+//  Created by Денис Гынгазов on 18.11.2020.
 //
 
 import UIKit

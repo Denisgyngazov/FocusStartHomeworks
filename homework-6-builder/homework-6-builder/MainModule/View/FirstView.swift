@@ -56,5 +56,3 @@ private extension FirstView {
 		])
 	}
 }
-
-
