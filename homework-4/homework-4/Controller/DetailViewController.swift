@@ -11,7 +11,7 @@ final class DetailViewController: UIViewController {
 
 // MARK: - Property
 
-	private var desctiptionText: String
+	private let desctiptionText: String
 
 // MARK: - Life Сycle
 	
@@ -29,10 +29,3 @@ final class DetailViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
-
-
-
-
-
-
-

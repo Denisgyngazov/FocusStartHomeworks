@@ -11,7 +11,7 @@ final class MasterViewController: UITableViewController {
 
 // MARK: - Property
 
-	let mockData: [Mock] = Mock.mockData()
+	private let mockData: [Mock] = Mock.mockData()
 
 // MARK: - Life Cycle
 
@@ -31,7 +31,7 @@ extension MasterViewController {
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let masterCell = tableView.dequeueReusableCell(
-				withIdentifier: MasterTableViewCell.identifaer, for: indexPath) as? MasterTableViewCell
+				withIdentifier: MasterTableViewCell.identifier, for: indexPath) as? MasterTableViewCell
 		else { return UITableViewCell() }
 		masterCell.configure(title: mockData[indexPath.row].title, description: mockData[indexPath.row].description, time: mockData[indexPath.row].time)
 
@@ -54,7 +54,7 @@ extension MasterViewController {
 private extension MasterViewController {
 	func setupMasterController() {
 		
-		tableView.register(MasterTableViewCell.self, forCellReuseIdentifier: MasterTableViewCell.identifaer)
+		tableView.register(MasterTableViewCell.self, forCellReuseIdentifier: MasterTableViewCell.identifier)
 		tableView.rowHeight = UITableView.automaticDimension
 		self.navigationItem.title = "ДЗ №4"
 		self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -69,7 +69,3 @@ private extension MasterViewController {
 			self.splitViewController?.showDetailViewController(navigationController, sender: nil)
 	}
 }
-
-
-
-
