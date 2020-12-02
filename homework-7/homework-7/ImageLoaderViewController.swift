@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ImageLoaderViewController: UIViewController {
 
@@ -16,10 +17,9 @@ class ImageLoaderViewController: UIViewController {
 	override func loadView() {
 		super.loadView()
 		self.view = imageLoaderView
+
+		
 	}
 }
 
-extension ImageLoaderViewController: UITableViewDelegate {
-
-}
 

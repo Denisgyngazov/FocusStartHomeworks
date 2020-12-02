@@ -6,17 +6,17 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 final class ImageLoaderCell: UITableViewCell {
 	
 	// MARK: - View
 
 	private let mainImageView = UIImageView()
-
+	private var ulr: URL?
 
 	// MARK: - Property
-
-
 
 	static let identifaer = String(describing: ImageLoaderCell.self)
 
@@ -37,8 +37,8 @@ final class ImageLoaderCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func configure(image: UIImage) {
-		mainImageView.image = image
+	func configure(url: URL?) {
+		self.ulr = url
 	}
 
 }

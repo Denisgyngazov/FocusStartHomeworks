@@ -8,24 +8,43 @@
 import UIKit
 
 final class ImageLoaderView: UIView {
-	// MARK: -View
+	// MARK: - View
 
 	private let searchBar = UISearchBar()
 	private let tableView = UITableView()
 
+	private var tableViewDataSource: TableViewDataSource?
+	private var tableViewDelegate: TableViewDelegate?
+
+	private var image = [URL]()
+
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		tableView.register(ImageLoaderCell.self, forCellReuseIdentifier: ImageLoaderCell.identifaer)
 		backgroundColor = .systemBackground
+		tableView.register(ImageLoaderCell.self, forCellReuseIdentifier: ImageLoaderCell.identifaer)
 		
 		setupViewAppearance()
 		setupViewLayout()
 
 
-//		setupViewAppearance()
-//		setupViewLayout()
+
+		self.tableViewDelegate = TableViewDelegate()
+		self.tableViewDataSource = TableViewDataSource(withData: image)
+
+		self.tableView.delegate = self.tableViewDelegate
+		self.tableView.dataSource = self.tableViewDataSource
+
 	}
+
+//	@objc func press() {
+//		if let searchBarText = searchBar.text {
+//			if let urlImage = URL(string: searchBarText) {
+//				image.append(urlImage)
+//				tableView.reloadData()
+//			}
+//		}
+//	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -36,13 +55,12 @@ final class ImageLoaderView: UIView {
 
 private extension ImageLoaderView {
 	func setupViewAppearance() {
-
 		setupSearchBarAppearance()
 		setupTableViewAppearance()
 	}
 
 	func setupSearchBarAppearance() {
-		//searchBar.showsCancelButton = true
+		searchBar.placeholder = "Введите URL"
 	}
 
 	func setupTableViewAppearance() {
@@ -59,7 +77,7 @@ private extension ImageLoaderView {
 	}
 
 	func setupSearchBarLayout() {
-		addSubview(searchBar)
+		self.addSubview(searchBar)
 		searchBar.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
@@ -70,7 +88,7 @@ private extension ImageLoaderView {
 	}
 
 	func setupTableViewLayout() {
-		addSubview(tableView)
+		self.addSubview(tableView)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
