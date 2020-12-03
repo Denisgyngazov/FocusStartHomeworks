@@ -16,6 +16,7 @@ final class ImageLoaderCell: UITableViewCell {
 	private let mainImageView = UIImageView()
 	private var ulr: URL?
 
+
 	// MARK: - Property
 
 	static let identifaer = String(describing: ImageLoaderCell.self)
@@ -39,8 +40,18 @@ final class ImageLoaderCell: UITableViewCell {
 
 	func configure(url: URL?) {
 		self.ulr = url
+		//loadImage()
 	}
 
+	func loadImage() {
+		guard let url = ulr else {return}
+		AF.request(url.absoluteString).responseImage { [weak self] response in
+			if case .success(let image) = response.result {
+				self?.mainImageView.image = image
+				//print("Картинка загружена: \(image)")
+			}
+		}
+	}
 }
 
 	// MARK: - Appearance

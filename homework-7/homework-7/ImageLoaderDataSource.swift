@@ -7,25 +7,29 @@
 
 import UIKit
 
-class TableViewDataSource: NSObject, UITableViewDataSource {
+class TableViewDataSource: NSObject, UITableViewDataSource{
 
 	private var image = [URL]()
 
-
 	init(withData image: [URL]) {
 		self.image = image
+
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.image.count
-		
+	}
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 5 
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageLoaderCell.identifaer, for: indexPath) as? ImageLoaderCell
 		else { return UITableViewCell() }
 		cell.configure(url: image[indexPath.row])
-
+		cell.loadImage()
 		return cell
 	}
 }
+

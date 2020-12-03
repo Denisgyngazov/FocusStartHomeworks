@@ -12,9 +12,11 @@ final class ImageLoaderView: UIView {
 
 	private let searchBar = UISearchBar()
 	private let tableView = UITableView()
+	private let searchButton = UIButton()
 
 	private var tableViewDataSource: TableViewDataSource?
 	private var tableViewDelegate: TableViewDelegate?
+
 
 	private var image = [URL]()
 
@@ -27,24 +29,28 @@ final class ImageLoaderView: UIView {
 		setupViewAppearance()
 		setupViewLayout()
 
-
+		searchButton.addTarget(self, action: #selector(press), for: .touchUpInside)
 
 		self.tableViewDelegate = TableViewDelegate()
 		self.tableViewDataSource = TableViewDataSource(withData: image)
 
 		self.tableView.delegate = self.tableViewDelegate
 		self.tableView.dataSource = self.tableViewDataSource
+		tableView.reloadData()
 
 	}
 
-//	@objc func press() {
-//		if let searchBarText = searchBar.text {
-//			if let urlImage = URL(string: searchBarText) {
-//				image.append(urlImage)
-//				tableView.reloadData()
-//			}
-//		}
-//	}
+	@objc func press() {
+		if let searchBarText = searchBar.text {
+			if let urlImage = URL(string: searchBarText) {
+				image.append(urlImage)
+				tableView.reloadData()
+			}
+			else {
+			   print("Пусто")
+		   }
+		}
+	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -57,6 +63,7 @@ private extension ImageLoaderView {
 	func setupViewAppearance() {
 		setupSearchBarAppearance()
 		setupTableViewAppearance()
+		setupSearchButtonApperance()
 	}
 
 	func setupSearchBarAppearance() {
@@ -66,6 +73,11 @@ private extension ImageLoaderView {
 	func setupTableViewAppearance() {
 		tableView.tableFooterView = UIView()
 	}
+
+	func setupSearchButtonApperance() {
+		searchButton.setTitle("load", for: .normal)
+		searchButton.setTitleColor(.blue, for: .normal)
+	}
 }
 
 // MARK: - Layouts
@@ -74,6 +86,7 @@ private extension ImageLoaderView {
 	func setupViewLayout() {
 		setupSearchBarLayout()
 		setupTableViewLayout()
+		setupSearchButtonLayout()
 	}
 
 	func setupSearchBarLayout() {
@@ -83,7 +96,7 @@ private extension ImageLoaderView {
 		NSLayoutConstraint.activate([
 			searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
 			searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-			searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+			searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -50),
 		])
 	}
 
@@ -97,5 +110,19 @@ private extension ImageLoaderView {
 			tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
 			tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
 		])
+	}
+
+	func setupSearchButtonLayout() {
+		self.addSubview(searchButton)
+		searchButton.translatesAutoresizingMaskIntoConstraints = false
+
+		NSLayoutConstraint.activate([
+			searchButton.widthAnchor.constraint(equalToConstant: 50),
+			searchButton.heightAnchor.constraint(equalToConstant: 50),
+			searchButton.centerYAnchor.constraint(equalTo: searchBar.centerYAnchor),
+			searchButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
+
+		])
+
 	}
 }

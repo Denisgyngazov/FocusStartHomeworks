@@ -12,12 +12,13 @@ class ImageLoaderViewController: UIViewController {
 
 	private let imageLoaderView = ImageLoaderView()
 
-	private var image = [URL]()
-
 	override func loadView() {
 		super.loadView()
 		self.view = imageLoaderView
+	}
 
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 	}
 }
