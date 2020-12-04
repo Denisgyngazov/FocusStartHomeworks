@@ -6,6 +6,6 @@
 //
 
 enum TextFields: String {
-	case loginPlaceholder = "Введите логин"
-	case passwordPlaceholder = "Введите пароль"
+	case loginPlaceholder = "Enter login"
+	case passwordPlaceholder = "Enter password"
 }

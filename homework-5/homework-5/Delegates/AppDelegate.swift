@@ -1,24 +1,22 @@
 //
 //  AppDelegate.swift
-//  homework-3
+//  homework-5
 //
-//  Created by Денис Гынгазов on 30.10.2020.
+//  Created by Денис Гынгазов on 12.11.2020.
 //
 
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-	
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		
-		true
+		 true
 	}
-	
+
 	// MARK: UISceneSession Lifecycle
-	
+
 	func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-		
 		UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
 	}
 }
