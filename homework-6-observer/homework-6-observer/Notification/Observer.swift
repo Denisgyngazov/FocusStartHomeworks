@@ -12,7 +12,7 @@ protocol Observer: AnyObject {
 }
 
 final class NotificationCenters {
-		var state: Int = {
+	var state: Int = {
 		return Int(arc4random_uniform(15))
 	}()
 

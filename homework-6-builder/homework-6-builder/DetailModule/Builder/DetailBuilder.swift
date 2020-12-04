@@ -22,8 +22,7 @@ final class DetailBuilder: ModuleBuilder {
 	func build() -> UIViewController {
 		guard let title = title  else {fatalError("Добавь title")}
 		let presenter = MainPresenter()
-		let interactor = MainInteractor(presenter: presenter)
-		let controller = DetailViewController(title: title, interactor: interactor)
+		let controller = DetailViewController(title: title)
 		presenter.viewController = controller
 		return controller
 	}

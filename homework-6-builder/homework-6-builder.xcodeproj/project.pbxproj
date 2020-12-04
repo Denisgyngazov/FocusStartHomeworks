@@ -14,7 +14,6 @@
 		C48C73672567850900302094 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48C73652567850900302094 /* LaunchScreen.storyboard */; };
 		C48C73812567A5EA00302094 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C73802567A5EA00302094 /* FirstView.swift */; };
 		C48C73872567AB3F00302094 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C73862567AB3F00302094 /* Presenter.swift */; };
-		C48C738C2567AC2700302094 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C738B2567AC2700302094 /* Interactor.swift */; };
 		C48C73902567AD5B00302094 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C738F2567AD5B00302094 /* DetailViewController.swift */; };
 		C48C73962567AFB700302094 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C73952567AFB700302094 /* DetailBuilder.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		C48C73682567850900302094 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C48C73802567A5EA00302094 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		C48C73862567AB3F00302094 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		C48C738B2567AC2700302094 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		C48C738F2567AD5B00302094 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C48C73952567AFB700302094 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,20 +121,11 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		C48C738A2567ABF700302094 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				C48C738B2567AC2700302094 /* Interactor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		C48C738E2567AD3D00302094 /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
 				C48C73A62567CB2300302094 /* Builder */,
 				C48C73852567AB2300302094 /* Presenter */,
-				C48C738A2567ABF700302094 /* Interactor */,
 				C48C73A72567CB8C00302094 /* Controller */,
 			);
 			path = DetailModule;
@@ -242,7 +231,6 @@
 				C48C735B2567850800302094 /* AppDelegate.swift in Sources */,
 				C48C73962567AFB700302094 /* DetailBuilder.swift in Sources */,
 				C48C735D2567850800302094 /* SceneDelegate.swift in Sources */,
-				C48C738C2567AC2700302094 /* Interactor.swift in Sources */,
 				C48C73902567AD5B00302094 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

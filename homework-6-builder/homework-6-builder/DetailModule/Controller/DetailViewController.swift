@@ -9,14 +9,9 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
-// MARK: - Property
-
-	private let interactor: Interactor
-
 // MARK: - Init
 
-	init(title: String, interactor: Interactor) {
-		self.interactor = interactor
+	init(title: String) {
 		super.init(nibName: nil, bundle: nil)
 		self.title = title
 	}
