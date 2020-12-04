@@ -15,9 +15,8 @@
 		C404ACBC2577828000E6A3E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C404ACBA2577828000E6A3E7 /* LaunchScreen.storyboard */; };
 		C404ACCD257783F500E6A3E7 /* ImageLoaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404ACCC257783F500E6A3E7 /* ImageLoaderCell.swift */; };
 		C404ACD12577840700E6A3E7 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404ACD02577840700E6A3E7 /* ImageLoaderView.swift */; };
-		C404ACDF25779AF800E6A3E7 /* ImageLoaderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404ACDE25779AF800E6A3E7 /* ImageLoaderDataSource.swift */; };
-		C404ACE225779BC700E6A3E7 /* ImageLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404ACE125779BC700E6A3E7 /* ImageLoaderDelegate.swift */; };
 		C404ACE92577A83200E6A3E7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C404ACE82577A83200E6A3E7 /* Podfile */; };
+		C404AD24257A148400E6A3E7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404AD23257A148400E6A3E7 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +32,8 @@
 		C404ACBD2577828000E6A3E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C404ACCC257783F500E6A3E7 /* ImageLoaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderCell.swift; sourceTree = "<group>"; };
 		C404ACD02577840700E6A3E7 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
-		C404ACDE25779AF800E6A3E7 /* ImageLoaderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderDataSource.swift; sourceTree = "<group>"; };
-		C404ACE125779BC700E6A3E7 /* ImageLoaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderDelegate.swift; sourceTree = "<group>"; };
 		C404ACE82577A83200E6A3E7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C404AD23257A148400E6A3E7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				C404ACC82577839C00E6A3E7 /* Delegate */,
-				C404ACB32577827E00E6A3E7 /* ImageLoaderViewController.swift */,
-				C404ACCC257783F500E6A3E7 /* ImageLoaderCell.swift */,
-				C404ACD02577840700E6A3E7 /* ImageLoaderView.swift */,
-				C404ACDE25779AF800E6A3E7 /* ImageLoaderDataSource.swift */,
-				C404ACE125779BC700E6A3E7 /* ImageLoaderDelegate.swift */,
+				C404AD28257A149800E6A3E7 /* Controller */,
+				C404AD26257A148E00E6A3E7 /* View */,
 				C404ACCB257783BB00E6A3E7 /* Assets */,
 				C404ACCA257783A400E6A3E7 /* Storyboard */,
+				C404AD23257A148400E6A3E7 /* NetworkService.swift */,
 			);
 			path = "homework-7";
 			sourceTree = "<group>";
@@ -117,6 +113,23 @@
 				C404ACBD2577828000E6A3E7 /* Info.plist */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		C404AD26257A148E00E6A3E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C404ACCC257783F500E6A3E7 /* ImageLoaderCell.swift */,
+				C404ACD02577840700E6A3E7 /* ImageLoaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C404AD28257A149800E6A3E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C404ACB32577827E00E6A3E7 /* ImageLoaderViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CDF1FC0608D8A3F91096C6EC /* Frameworks */ = {
@@ -227,9 +240,8 @@
 				C404ACB02577827E00E6A3E7 /* AppDelegate.swift in Sources */,
 				C404ACCD257783F500E6A3E7 /* ImageLoaderCell.swift in Sources */,
 				C404ACD12577840700E6A3E7 /* ImageLoaderView.swift in Sources */,
+				C404AD24257A148400E6A3E7 /* NetworkService.swift in Sources */,
 				C404ACB22577827E00E6A3E7 /* SceneDelegate.swift in Sources */,
-				C404ACE225779BC700E6A3E7 /* ImageLoaderDelegate.swift in Sources */,
-				C404ACDF25779AF800E6A3E7 /* ImageLoaderDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

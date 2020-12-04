@@ -7,25 +7,28 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 
 final class ImageLoaderCell: UITableViewCell {
 	
 	// MARK: - View
 
 	private let mainImageView = UIImageView()
-	private var ulr: URL?
-
 
 	// MARK: - Property
 
 	static let identifaer = String(describing: ImageLoaderCell.self)
+	private var ulr: URL?
+	//weak var delegete: ImageViewAllertControllerDelegate?
+	private let networkService = NetworkService()
+
+	// MARK: - Constants
 
 	private enum Constants {
 		static let verticalSpace: CGFloat = 10;
 		static let horizontalScape: CGFloat = 18;
-
 	}
+
+	// MARK: - Init
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,20 +41,26 @@ final class ImageLoaderCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func configure(url: URL?) {
+	// MARK: - ConfigureCell
+	
+	func configure(url: URL?, delegete: delegateUpdate?) {
 		self.ulr = url
+		networkService.loadImage(imageView: mainImageView)
 		//loadImage()
 	}
 
-	func loadImage() {
-		guard let url = ulr else {return}
-		AF.request(url.absoluteString).responseImage { [weak self] response in
-			if case .success(let image) = response.result {
-				self?.mainImageView.image = image
-				//print("Картинка загружена: \(image)")
-			}
-		}
-	}
+//	func loadImage() {
+//		guard let url = ulr else {return}
+//		AF.request(url.absoluteString).responseImage { [weak self] response in
+//			if case .success(let image) = response.result {
+//				self?.mainImageView.image = image
+//			}
+//
+//			if case .failure( _) = response.result {
+//				self?.delegete?.showErrorLoadImage(title: "Ошибка загрузки", body: "Изображение не было загружено")
+//			}
+//		}
+//	}
 }
 
 	// MARK: - Appearance
