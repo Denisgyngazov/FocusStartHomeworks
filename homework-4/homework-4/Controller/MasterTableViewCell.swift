@@ -17,7 +17,7 @@ final class MasterTableViewCell: UITableViewCell {
 
 // MARK: - Property
 
-	static let identifaer = String(describing: MasterTableViewCell.self)
+	static let identifier = String(describing: MasterTableViewCell.self)
 
 	private enum Fonts {
 		static let descriptionFont = UIFont.italicSystemFont(ofSize: 15)
@@ -112,7 +112,7 @@ private extension MasterTableViewCell {
 		timeLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-		timeLabel.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+			timeLabel.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
 			timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
 												constant: -Constants.trailingAnchor),
 			timeLabel.leadingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor,

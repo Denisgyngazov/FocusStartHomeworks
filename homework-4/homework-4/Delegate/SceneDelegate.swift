@@ -17,6 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
 		let masterController = MasterViewController()
 		let navigationMasterController = UINavigationController(rootViewController: masterController)
+		masterController.navigationItem.title = "ДЗ №4"
+		masterController.navigationController?.navigationBar.prefersLargeTitles = true
 
 		let detailController = DetailViewController()
 		let navigationDetailController = UINavigationController(rootViewController: detailController)

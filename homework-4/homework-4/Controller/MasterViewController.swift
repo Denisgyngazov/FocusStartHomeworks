@@ -11,13 +11,13 @@ final class MasterViewController: UITableViewController {
 
 // MARK: - Property
 
-	let mockData: [Mock] = Mock.mockData()
+	private let mockData: [Mock] = Mock.mockData()
 
 // MARK: - Life Cycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupMasterController()
+		tableView.register(MasterTableViewCell.self, forCellReuseIdentifier: MasterTableViewCell.identifier)
 		openCell(indexPath: IndexPath(row: 0, section: 0))
 	}
 }
@@ -31,7 +31,7 @@ extension MasterViewController {
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let masterCell = tableView.dequeueReusableCell(
-				withIdentifier: MasterTableViewCell.identifaer, for: indexPath) as? MasterTableViewCell
+				withIdentifier: MasterTableViewCell.identifier, for: indexPath) as? MasterTableViewCell
 		else { return UITableViewCell() }
 		masterCell.configure(title: mockData[indexPath.row].title, description: mockData[indexPath.row].description, time: mockData[indexPath.row].time)
 
@@ -52,24 +52,9 @@ extension MasterViewController {
 }
 
 private extension MasterViewController {
-	func setupMasterController() {
-		
-		tableView.register(MasterTableViewCell.self, forCellReuseIdentifier: MasterTableViewCell.identifaer)
-		tableView.rowHeight = UITableView.automaticDimension
-		self.navigationItem.title = "ДЗ №4"
-		self.navigationController?.navigationBar.prefersLargeTitles = true
-	}
-}
-
-private extension MasterViewController {
 	func openCell(indexPath: IndexPath) {
 		let detailViewController = DetailViewController(descriptionText: mockData[indexPath.row].description)
 			detailViewController.title = mockData[indexPath.row].title
-			let navigationController = UINavigationController(rootViewController: detailViewController)
-			self.splitViewController?.showDetailViewController(navigationController, sender: nil)
+			self.splitViewController?.showDetailViewController(detailViewController, sender: nil)
 	}
 }
-
-
-
-
