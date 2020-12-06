@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 final class ImageLoaderCell: UITableViewCell {
 	
@@ -17,9 +16,6 @@ final class ImageLoaderCell: UITableViewCell {
 	// MARK: - Property
 
 	static let identifaer = String(describing: ImageLoaderCell.self)
-	private var ulr: URL?
-	//weak var delegete: ImageViewAllertControllerDelegate?
-	private let networkService = NetworkService()
 
 	// MARK: - Constants
 
@@ -40,27 +36,18 @@ final class ImageLoaderCell: UITableViewCell {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+}
 
 	// MARK: - ConfigureCell
-	
-	func configure(url: URL?, delegete: delegateUpdate?) {
-		self.ulr = url
-		networkService.loadImage(imageView: mainImageView)
-		//loadImage()
+
+extension ImageLoaderCell {
+	func setupImage(image: UIImage) {
+		self.mainImageView.image = image
 	}
 
-//	func loadImage() {
-//		guard let url = ulr else {return}
-//		AF.request(url.absoluteString).responseImage { [weak self] response in
-//			if case .success(let image) = response.result {
-//				self?.mainImageView.image = image
-//			}
-//
-//			if case .failure( _) = response.result {
-//				self?.delegete?.showErrorLoadImage(title: "Ошибка загрузки", body: "Изображение не было загружено")
-//			}
-//		}
-//	}
+	func configure(image: UIImage) {
+			setupImage(image: image)
+	}
 }
 
 	// MARK: - Appearance

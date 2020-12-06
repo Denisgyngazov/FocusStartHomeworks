@@ -12,7 +12,7 @@ protocol ImageViewAllertControllerDelegate: AnyObject {
 }
 
 final class ImageLoaderViewController: UIViewController {
-	
+
 	//MARK: - Property
 
 	private let imageLoaderView = ImageLoaderView()
@@ -25,7 +25,6 @@ final class ImageLoaderViewController: UIViewController {
 	}
 }
 
-	//MARK: - AllertController
 
 extension ImageLoaderViewController: ImageViewAllertControllerDelegate {
 	func showErrorLoadImage(title: String, body: String) {

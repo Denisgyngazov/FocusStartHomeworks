@@ -16,10 +16,10 @@ final class ImageLoaderView: UIView {
 	private let searchButton = UIButton()
 
 	// MARK: - Property
-
-	private var image = [URL]()
-	weak var delegete: delegateUpdate?
-	weak var delegeteAllertController: ImageViewAllertControllerDelegate?
+	
+	 private var images = [UIImage]()
+	 weak var delegate: ImageViewAllertControllerDelegate?
+	
 
 	// MARK: - Constants
 
@@ -41,8 +41,8 @@ final class ImageLoaderView: UIView {
 		backgroundColor = .systemBackground
 		tableView.register(ImageLoaderCell.self, forCellReuseIdentifier: ImageLoaderCell.identifaer)
 
-		searchButton.addTarget(self, action: #selector(pressButtonLoad), for: .touchUpInside)
-		
+		self.searchButton.addTarget(self, action: #selector(loadImage), for: .touchUpInside)
+
 		setupViewAppearance()
 		setupViewLayout()
 
@@ -60,14 +60,14 @@ final class ImageLoaderView: UIView {
 extension ImageLoaderView: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-		return self.image.count
+		return self.images.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageLoaderCell.identifaer, for: indexPath) as? ImageLoaderCell
 		else { return UITableViewCell() }
 		
-		cell.configure(url: image[indexPath.row], delegete: self)
+		cell.configure(image: images[indexPath.row])
 
 		return cell
 	}
@@ -83,27 +83,29 @@ extension ImageLoaderView: UITableViewDelegate {
 	}
 }
 
-extension ImageLoaderView: delegateUpdate {
-	func update(image: [URL]) {
-		self.image = image
-	}
-}
-
-	// MARK: - pressButtonLoad
+	// MARK: - Network
 
 private extension ImageLoaderView {
-	@objc func pressButtonLoad() {
-		if let searchBarText = searchBar.text {
-			if let urlImage = URL(string: searchBarText) {
-				image.append(urlImage)
-				delegete?.update(image: image)
-				tableView.reloadData()
+	@objc func loadImage() {
+		let imageUrl = searchBar.searchTextField.text ?? ""
+
+		guard let url = URL(string: imageUrl) else {
+			self.delegate?.showErrorLoadImage(title: "Ошибка", body: "Некоректный URL")
+			return
+		}
+
+		let session = URLSession.shared
+
+		session.dataTask(with: url) { (data, responce, error) in
+			if error != nil {
+				self.delegate?.showErrorLoadImage(title: "Ошибка", body: "Несмогли загрузить")
 			}
 
-			else {
-				self.delegeteAllertController?.showErrorLoadImage(title: "Ошибка", body: "Проверьте корректность ввода URL")
+			if let data = data, let image = UIImage(data: data) {
+					self.images.append(image)
+					self.tableView.reloadData()
 			}
-		}
+		}.resume()
 	}
 }
 
