@@ -11,16 +11,14 @@ final class EmployeeDetailView: UIView {
 
 	//MARK: - View
 
-	private var nameTextField = UITextField()
-	private var ageTextField = UITextField()
-	private var experienceTextField = UITextField()
-	private var educationTextField = UITextField()
-	private var positionTextField = UITextField()
+	 var nameTextField = UITextField()
+	 var ageTextField = UITextField()
+	 var experienceTextField = UITextField()
+	 var educationTextField = UITextField()
+	 var positionTextField = UITextField()
 
 //MARK: - Property
 
-	private var employee: Employee?
-	private var company: Company?
 
 	private enum Constants {
 		static let leadingAnchor: CGFloat = 10
@@ -40,10 +38,8 @@ final class EmployeeDetailView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		backgroundColor = .systemBackground
-
 		setupViewApperance()
 		setupViewLayout()
-		setupEmployee()
 
 	}
 
@@ -52,71 +48,6 @@ final class EmployeeDetailView: UIView {
 	}
 }
 
-//MARK: - Setup employee
-
-extension EmployeeDetailView {
-	func setupEmployee() {
-		if let employee = employee {
-			nameTextField.text = employee.name
-			ageTextField.text = String(employee.age)
-			experienceTextField.text = String(employee.experience)
-			educationTextField.text = employee.education
-			positionTextField.text = employee.position
-		}
-	}
-}
-
-//MARK: - Save emloyee
-
-extension EmployeeDetailView {
-	@objc func saveEmployee() {
-		if  nameTextField.text == "" ||
-				ageTextField.text == "" ||
-				positionTextField.text == "" {
-			self.showAlert(title: "Внимание", body: "Введите имя, возраст, образование")
-		}
-
-
-		guard let company = company else { return }
-		let name = nameTextField.text ?? ""
-		guard let age = Int(ageTextField.text ?? "0") else { return  }
-		guard let experience = Int(experienceTextField.text ?? "0") else { return }
-		let education = educationTextField.text ?? ""
-		let position = positionTextField.text ?? ""
-
-		if employee == nil {
-
-			DataBaseManager.shared.addEmployee(company: company,
-											   name: name,
-											   age: age ,
-											   experience: experience,
-											   education: education,
-											   position: position)
-		} else {
-			guard let employee = employee else { return }
-
-			DataBaseManager.shared.saveEmployee(employee: employee,
-												name: name,
-												age: age,
-												experience: experience,
-												education: education,
-												position: position)
-		}
-	}
-}
-
-//MARK: - Alert Controller
-
-private extension EmployeeDetailView {
-	func showAlert(title: String, body: String) {
-		let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
-		let acceptButton = UIAlertAction(title: "Продолжить", style: .default)
-
-		alertController.addAction(acceptButton)
-
-		findViewController()?.present(alertController, animated: true)
-	}
-}
 
 // MARK: - Apperance
 

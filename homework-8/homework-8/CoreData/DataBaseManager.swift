@@ -9,14 +9,14 @@ import UIKit
 import CoreData
 
 struct DataBaseManager {
-	static let shared = DataBaseManager()
+	static var shared = DataBaseManager()
 	private var data = [Company]()
 
 	private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
 	func addCompany(_ name: String) -> Company? {
 		guard let entityDescription = NSEntityDescription.entity(forEntityName: "Company", in: context)
-			else { return nil }
+		else { return nil }
 		let company = NSManagedObject(entity: entityDescription, insertInto: context) as! Company
 
 		company.nameCompany = name
@@ -30,8 +30,8 @@ struct DataBaseManager {
 		}
 	}
 
-	func removeCompany(index: Int) {
-		let deleteData = data[index]
+	mutating func removeCompany(index: Int) {
+		let deleteData = data.remove(at: index)
 		context.delete(deleteData)
 
 		do {
@@ -57,14 +57,14 @@ struct DataBaseManager {
 	}
 
 	func addEmployee(company: Company,
-				   name: String,
-				   age: Int,
-				   experience: Int,
-				   education: String,
-				   position: String) {
+					 name: String,
+					 age: Int,
+					 experience: Int,
+					 education: String,
+					 position: String) {
 
 		guard let entityDescription = NSEntityDescription.entity(forEntityName: "Employee", in: context)
-			else { return }
+		else { return }
 		let employeeEntity = NSManagedObject(entity: entityDescription, insertInto: context) as! Employee
 
 		employeeEntity.name = name
@@ -76,17 +76,18 @@ struct DataBaseManager {
 
 		do {
 			try context.save()
+
 		} catch {
 			context.rollback()
 		}
 	}
 
 	func saveEmployee(employee: Employee,
-					name: String,
-					age: Int,
-					experience: Int,
-					education: String,
-					position: String) {
+					  name: String,
+					  age: Int,
+					  experience: Int,
+					  education: String,
+					  position: String) {
 
 		employee.name = name
 		employee.age = Int16(age)
@@ -98,22 +99,21 @@ struct DataBaseManager {
 			try context.save()
 		} catch {
 			context.rollback()
-		}
+		} 
 	}
 
 	func fetchEmployee(company: Company) -> [Employee] {
-		var employee = [Employee]()
+		var employees = [Employee]()
 
 		let fetchRequest: NSFetchRequest<Employee> = Employee.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "company == %@", company)
 
 		do {
-			employee = try context.fetch(fetchRequest)
+			employees = try context.fetch(fetchRequest)
 		} catch {
 			context.rollback()
 		}
 
-		return employee
+		return employees
 	}
 }
-

@@ -17,8 +17,7 @@ extension Company {
     }
 
     @NSManaged public var nameCompany: String?
-    @NSManaged public var employee: NSSet? // Employee?
-
+    @NSManaged public var employee: NSSet?
 }
 
 extension Company {

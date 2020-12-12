@@ -31,5 +31,3 @@ extension CompanyTableViewCell {
 		self.textLabel?.text = company.nameCompany
 	}
 }
-
-
