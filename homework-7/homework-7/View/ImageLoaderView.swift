@@ -18,7 +18,7 @@ final class ImageLoaderView: UIView {
 	// MARK: - Property
 	
 	 private var images = [UIImage]()
-	 weak var delegate: ImageViewAllertControllerDelegate?
+
 	
 
 	// MARK: - Constants
@@ -73,7 +73,7 @@ extension ImageLoaderView: UITableViewDataSource {
 	}
 }
 
-	// MARK: - Delegete
+// MARK: - Delegete
 
 extension ImageLoaderView: UITableViewDelegate {
 
@@ -83,14 +83,14 @@ extension ImageLoaderView: UITableViewDelegate {
 	}
 }
 
-	// MARK: - Network
+// MARK: - Network
 
 private extension ImageLoaderView {
 	@objc func loadImage() {
 		let imageUrl = searchBar.searchTextField.text ?? ""
 
 		guard let url = URL(string: imageUrl) else {
-			self.delegate?.showErrorLoadImage(title: "Ошибка", body: "Некоректный URL")
+			self.showErrorLoadImage(title: "Ошибка", body: "Неокректный URL")
 			return
 		}
 
@@ -98,7 +98,8 @@ private extension ImageLoaderView {
 
 		session.dataTask(with: url) { (data, responce, error) in
 			if error != nil {
-				self.delegate?.showErrorLoadImage(title: "Ошибка", body: "Несмогли загрузить")
+				self.showErrorLoadImage(title: "Ошибка", body: "Несмогли загрузить")
+
 			}
 
 			if let data = data, let image = UIImage(data: data) {
@@ -109,7 +110,19 @@ private extension ImageLoaderView {
 	}
 }
 
-	// MARK: - Appearance
+
+private extension ImageLoaderView {
+	func showErrorLoadImage(title: String, body: String) {
+		let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
+		let action = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+		}
+
+		alertController.addAction(action)
+		findViewController()?.present(alertController, animated: true)
+	}
+}
+
+// MARK: - Appearance
 
 private extension ImageLoaderView {
 	func setupViewAppearance() {

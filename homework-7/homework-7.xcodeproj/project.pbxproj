@@ -16,6 +16,7 @@
 		C404ACCD257783F500E6A3E7 /* ImageLoaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404ACCC257783F500E6A3E7 /* ImageLoaderCell.swift */; };
 		C404ACD12577840700E6A3E7 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C404ACD02577840700E6A3E7 /* ImageLoaderView.swift */; };
 		C404ACE92577A83200E6A3E7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C404ACE82577A83200E6A3E7 /* Podfile */; };
+		C435C97C2584D3A4004FFC5D /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435C97B2584D3A4004FFC5D /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C404ACCC257783F500E6A3E7 /* ImageLoaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderCell.swift; sourceTree = "<group>"; };
 		C404ACD02577840700E6A3E7 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
 		C404ACE82577A83200E6A3E7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C435C97B2584D3A4004FFC5D /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C404ACAE2577827E00E6A3E7 /* homework-7 */ = {
 			isa = PBXGroup;
 			children = (
+				C435C97A2584D384004FFC5D /* UIKit + Extension */,
 				C404ACC82577839C00E6A3E7 /* Delegate */,
 				C404AD28257A149800E6A3E7 /* Controller */,
 				C404AD26257A148E00E6A3E7 /* View */,
@@ -127,6 +130,14 @@
 				C404ACB32577827E00E6A3E7 /* ImageLoaderViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C435C97A2584D384004FFC5D /* UIKit + Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C435C97B2584D3A4004FFC5D /* UIView + Extension.swift */,
+			);
+			path = "UIKit + Extension";
 			sourceTree = "<group>";
 		};
 		CDF1FC0608D8A3F91096C6EC /* Frameworks */ = {
@@ -235,6 +246,7 @@
 			files = (
 				C404ACB42577827E00E6A3E7 /* ImageLoaderViewController.swift in Sources */,
 				C404ACB02577827E00E6A3E7 /* AppDelegate.swift in Sources */,
+				C435C97C2584D3A4004FFC5D /* UIView + Extension.swift in Sources */,
 				C404ACCD257783F500E6A3E7 /* ImageLoaderCell.swift in Sources */,
 				C404ACD12577840700E6A3E7 /* ImageLoaderView.swift in Sources */,
 				C404ACB22577827E00E6A3E7 /* SceneDelegate.swift in Sources */,
