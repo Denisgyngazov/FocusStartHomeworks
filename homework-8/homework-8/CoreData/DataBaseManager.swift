@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 struct DataBaseManager {
+	
 	static var shared = DataBaseManager()
 	private var data = [Company]()
 
