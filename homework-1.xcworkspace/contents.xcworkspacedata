@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:homework-8/homework-8.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:homework-7/homework-7.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:homework-6-builder/homework-6-builder.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:homework-6-observer/homework-6-observer.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:homework-5/homework-5.xcodeproj">
    </FileRef>
    <FileRef
